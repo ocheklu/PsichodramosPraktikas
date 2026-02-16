@@ -505,6 +505,13 @@ button {
   display: block;
 }
 
+/* Для вертикального видео (Shorts/Reels) */
+.video-container-9-16 {
+  aspect-ratio: 9 / 16;
+  max-width: 400px;  /* Ограничим ширину */
+  margin: 0 auto;    /* Центрируем */
+}
+
 /* Для iframe (YouTube/Vimeo) */
 .video-container-16-9 {
   aspect-ratio: 16 / 9;
