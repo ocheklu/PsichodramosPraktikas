@@ -127,7 +127,7 @@ button {
 /* ЗАГОЛОВКИ */
 .heading-hero {
   font-family: var(--font-heading);
-  font-size: var(--text-6xl);
+  font-size: var(--text-5xl);
   font-weight: 400;
   line-height: 1.1;
   color: var(--color-navy);
@@ -186,7 +186,7 @@ button {
 /* ПОДЗАГОЛОВКИ */
 .subheading-hero {
   font-family: var(--font-primary);
-  font-size: var(--text-xl);
+  font-size: var(--text-lg);
   font-weight: 400;
   line-height: 1.6;
   color: var(--color-teal);
@@ -444,7 +444,7 @@ button {
    6. HERO СЕКЦИЯ
    ============================================ */
 .hero {
-    min-height: 50vh;
+    min-height: 60vh;
     display: flex;
     align-items: center;
     padding-top: calc(140px + var(--space-2xl));
