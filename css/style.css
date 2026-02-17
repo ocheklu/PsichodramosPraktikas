@@ -383,7 +383,7 @@ button {
 }
 
 .logo img {
-  height: 60px;
+  height: 180px;
   width: auto;
   display: block;
 }
@@ -512,7 +512,7 @@ button {
 /* Для вертикального видео (Shorts/Reels) */
 .video-container-9-16 {
   aspect-ratio: 9 / 16;
-  max-width: 280px;
+  max-width: 340px;
   margin: 0 auto;
 }
 

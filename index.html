@@ -45,114 +45,122 @@
     
     <!-- Schema.org Organization + Person + Counselor -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
+{
+    "@context": "https://schema.org",
+    "@graph": [
         {
-          "@type": "Organization",
-          "@id": "https://psichodramospraktikas.lt/#organization",
-          "name": "Psichodramos Praktikas",
-          "url": "https://psichodramospraktikas.lt",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://psichodramospraktikas.lt/images/logo.png"
-          },
-          "sameAs": [
-            "https://www.instagram.com/psichodramospraktikas"
-          ],
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+370-671-68072",
-            "contactType": "customer service",
-            "email": "psichodramospraktikas@gmail.com",
-            "areaServed": "LT",
-            "availableLanguage": ["Lithuanian", "Russian", "English"]
-          },
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Vilnius",
-            "addressCountry": "LT"
-          }
-        },
-        {
-          "@type": ["Person", "Counselor"],
-          "@id": "https://psichodramospraktikas.lt/#person",
-          "name": "Oleg Čeklu",
-          "jobTitle": "Psichodramos praktikas, Judėsio terapijos praktikas",
-          "description": "Konsultantas ir terapinis meno koučeris, dirbantis su psichodrama, judėsio terapija ir meditacijomis. Padeda sveikiems žmonėms spręsti vidinius konfliktus, gerinti santykius ir ugdyti emocinį bei dvasinį intelektą.",
-          "url": "https://psichodramospraktikas.lt",
-          "image": "https://psichodramospraktikas.lt/images/index-page/oleg-2.jpg",
-          "email": "psichodramospraktikas@gmail.com",
-          "telephone": "+370-671-68072",
-          "sameAs": [
-            "https://www.instagram.com/psichodramospraktikas"
-          ],
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Vilnius",
-            "addressCountry": "LT"
-          },
-          "knowsAbout": [
-            "Psychodrama",
-            "Dance Movement Therapy",
-            "Art Therapy",
-            "Drama Therapy",
-            "Meditation",
-            "Emotional Intelligence",
-            "Spiritual Intelligence"
-          ],
-          "alumniOf": {
-            "@type": "EducationalOrganization",
-            "name": "Gyvoji Psichologija"
-          },
-          "hasCredential": {
-            "@type": "EducationalOccupationalCredential",
-            "credentialCategory": "certificate",
-            "name": "Therapeutic Art Life Coach"
-          },
-          "memberOf": {
             "@type": "Organization",
-            "@id": "https://psichodramospraktikas.lt/#organization"
-          }
+            "@id": "https://psichodramospraktikas.lt/#organization",
+            "name": "Psichodramos Praktikas",
+            "url": "https://psichodramospraktikas.lt",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://psichodramospraktikas.lt/images/index-page/logo-pp.png"
+            },
+            "sameAs": [
+                "https://www.instagram.com/psichodramospraktikas"
+            ],
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+370-671-68072",
+                "contactType": "customer service",
+                "email": "psichodramospraktikas@gmail.com",
+                "areaServed": "LT",
+                "availableLanguage": ["Lithuanian", "Russian", "English"]
+            },
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Vilnius",
+                "addressCountry": "LT"
+            }
         },
         {
-          "@type": "WebSite",
-          "@id": "https://psichodramospraktikas.lt/#website",
-          "url": "https://psichodramospraktikas.lt",
-          "name": "Psichodramos Praktikas",
-          "description": "Psichodramos ir judėsio terapijos sesijos Vilniuje",
-          "publisher": {
-            "@id": "https://psichodramospraktikas.lt/#organization"
-          },
-          "inLanguage": "lt"
+            "@type": ["Person", "Counselor"],
+            "@id": "https://psichodramospraktikas.lt/#person",
+            "name": "Oleg Čeklu",
+            "jobTitle": "Psichodramos ir judėsio terapijos praktikas",
+            "description": "30 metų tyrinėja emocijas, kūną ir energiją. Dirba su psichodramos ir judėsio terapijos metodais. Padeda žmonėms išsilaisvinti iš sunkumų ir geriau pažinti save.",
+            "url": "https://psichodramospraktikas.lt",
+            "image": "https://psichodramospraktikas.lt/images/index-page/oleg-2.jpg",
+            "email": "psichodramospraktikas@gmail.com",
+            "telephone": "+370-671-68072",
+            "sameAs": [
+                "https://www.instagram.com/psichodramospraktikas"
+            ],
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Vilnius",
+                "addressCountry": "LT"
+            },
+            "knowsAbout": [
+                "Psychodrama",
+                "Dance Movement Therapy",
+                "Art Therapy",
+                "Drama Therapy",
+                "Meditation",
+                "Emotional Intelligence",
+                "Spiritual Intelligence"
+            ],
+            "alumniOf": {
+                "@type": "EducationalOrganization",
+                "name": "Gyvoji Psichologija"
+            },
+            "hasCredential": [
+                {
+                    "@type": "EducationalOccupationalCredential",
+                    "credentialCategory": "certificate",
+                    "name": "Therapeutic Art Life Coach"
+                },
+                {
+                    "@type": "EducationalOccupationalCredential",
+                    "credentialCategory": "certificate",
+                    "name": "Gyvoji Psichologija - Konsultavimas ir emocinės pagalbos įgūdžiai",
+                    "dateCreated": "2022-05-13"
+                }
+            ],
+            "memberOf": {
+                "@type": "Organization",
+                "@id": "https://psichodramospraktikas.lt/#organization"
+            }
         },
         {
-          "@type": "Service",
-          "serviceType": "Psichodrama Therapy",
-          "provider": {
-            "@id": "https://psichodramospraktikas.lt/#person"
-          },
-          "areaServed": {
-            "@type": "City",
-            "name": "Vilnius"
-          },
-          "description": "Individuali ir grupinė psichodramos terapija padedanti spręsti vidinius konfliktus ir gerinti santykius"
+            "@type": "WebSite",
+            "@id": "https://psichodramospraktikas.lt/#website",
+            "url": "https://psichodramospraktikas.lt",
+            "name": "Psichodramos Praktikas",
+            "description": "Psichodramos ir judėsio terapijos sesijos Vilniuje",
+            "publisher": {
+                "@id": "https://psichodramospraktikas.lt/#organization"
+            },
+            "inLanguage": "lt"
         },
         {
-          "@type": "Service",
-          "serviceType": "Dance Movement Therapy",
-          "provider": {
-            "@id": "https://psichodramospraktikas.lt/#person"
-          },
-          "areaServed": {
-            "@type": "City",
-            "name": "Vilnius"
-          },
-          "description": "Judėsio terapija per kūną ir intuiciją, padedanti rasti valią ir ugdyti emocinį intelektą"
+            "@type": "Service",
+            "serviceType": "Psichodrama Therapy",
+            "provider": {
+                "@id": "https://psichodramospraktikas.lt/#person"
+            },
+            "areaServed": {
+                "@type": "City",
+                "name": "Vilnius"
+            },
+            "description": "Individuali ir grupinė psichodramos terapija padedanti spręsti vidinius konfliktus ir gerinti santykius"
+        },
+        {
+            "@type": "Service",
+            "serviceType": "Dance Movement Therapy",
+            "provider": {
+                "@id": "https://psichodramospraktikas.lt/#person"
+            },
+            "areaServed": {
+                "@type": "City",
+                "name": "Vilnius"
+            },
+            "description": "Judėsio terapija per kūną ir intuiciją, padedanti rasti valią ir ugdyti emocinį intelektą"
         }
-      ]
-    }
-    </script>
+    ]
+}
+</script>
 </head>
 <body>
     
@@ -189,9 +197,9 @@
             <div class="hero-content">
                 <h1 class="heading-hero hero-title">Kelias link valios</h1>
                 <p class="subheading-hero hero-subtitle">
-                    Psichodrama <span class="hero-divider">•</span> 
-                    Judėsio terapija <span class="hero-divider">•</span>
-                </p>
+    Psichodrama <span class="hero-divider">•</span> 
+    Judėsio terapija
+</p>
             </div>
         </div>
     </section>
@@ -207,21 +215,22 @@
                     
                     <div class="text-body about-description">
                         <p class="mb-lg">
-                            Budamas 5 metų pradėjau tyrynėti ką jaučiu. Iki 20 metų lavinau emocinį bei
-                            dvasinį intelekta intuityviai. Paskutinius 15 metų tyrynėjau skirtingas terapinės 
-                            formas: bendraja psichologija, asmeninė ir grupinė psichoterapija, psichodramos stovyklas,
-                            meditaciją ir šokio terapiją.
+                            Budamas 5 metų pradėjau tyrynėti ką jaučiu. Pirmus 15 metų lavinau emocinį bei dvasinį
+                            intelektą intuityviai. Antrą dalį gyvenimo pažindinausi su skirtingomis terapinėms 
+                            formomis praktiškai. Tarp jų: asmeninė ir grupinė psichoterapija, konsultavimo kursai,
+                            psichodraminės stovyklos, meditacijos ciklai ir retritai, šokio terapiją.
                         </p>
                         
                         <p class="mb-lg">
-                            Aprašymas.
-                            Per psichodramą, judėsio terapiją 
-                             susipažinti su savo jausmais, rasti autentiškumą 
-                            ir stiprinti ryšį su savimi.
+                            Paprasčiausi atsakymai ir tikrieji rezultatai (sveikatos ir gyvenimo kokybes pokyčiai)
+                            pradėjo ateiti, kai prie psichikos nagrinėjimo prisidėjo darbas su fizinių kūnų (šokio terapiją).
+                            Aiškumą didino darbas su energija (meditacijos). Sudėjus visas savo žinias ir praktinius gebėjimus įgitus
+                            per 30 metų pradėdu teikti pagalba kitiems. Pasirinkau dvi formas, kuriuos mano manymu yra efektyviausios
+                            norint pradėti keisti savo gyvenimą, išsilaisvinti iš sunkumu ir eiti link savęs supratimo.
                         </p>
                         
                         <p class="text-body-sm text-light">
-                            <strong>Svarbu:</strong> Negydau diagnozuotų psichikos sutrikimų. Padedu pąžinti savę ir išsilaisvinti nuo senai nepajudinamu problemų.
+                            <strong>Svarbu:</strong> Negydau diagnozuotų psichikos sutrikimų. Padedu pąžinti savę ir savo potencialą per valią.
                         </p>
                     </div>
                     
@@ -230,13 +239,10 @@
                 
                 <!-- Video Container -->
 <div class="video-container video-container-9-16">
-    <!-- YouTube Shorts -->
-    <iframe 
-        src="https://www.youtube.com/embed/6r1q9a3R5Hg" 
-        title="Oleg Čeklu įvadas"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-    </iframe>
+    <video controls loop poster="images/index-page/oleg-video-poster.png">
+        <source src="images/index-page/short-oleg-dance.mp4" type="video/mp4">
+        Jūsų naršyklė nepalaiko video elemento.
+    </video>
 </div>
             </div>
         </div>
@@ -297,7 +303,7 @@
                         <h3 class="heading-5 blog-card-title">Kaip pajausti prasmę?</h3>
                         <p class="description-sm blog-card-description">
                             Prasmė yra jausmas, kuris ateina per tikėjimą bei įsitvirtina per 
-                            santykius ir darbą. Nuo ko pradėti pametus prasmę ir kaip tai padeda palaikyti sveikus santykius.
+                            santykius ir darbą. Nuo ko pradėti pametus ar ieškant prasmės.
                         </p>
                         <a href="tekstai/prasme.html" class="btn btn-outline btn-sm">Skaityti</a>
                     </div>
@@ -338,7 +344,7 @@
                         </time>
                         <h3 class="heading-5 blog-card-title">Panika | Kaip nusiraminti</h3>
                         <p class="description-sm blog-card-description">
-                            Praktiniai žingsniai, kaip grįžti į savo fizinį kūną per panikos priepuolį 
+                            Praktiniai žingsniai, kaip nusiraminti per panikos priepuolį 
                             ir sugrąžinti saugumo jausmą.
                         </p>
                         <a href="tekstai/panika.html" class="btn btn-outline btn-sm">Skaityti</a>
