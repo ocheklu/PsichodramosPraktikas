@@ -444,7 +444,7 @@ button {
    6. HERO СЕКЦИЯ
    ============================================ */
 .hero {
-    min-height: 70vh;
+    min-height: 50vh;
     display: flex;
     align-items: center;
     padding-top: calc(140px + var(--space-2xl));
