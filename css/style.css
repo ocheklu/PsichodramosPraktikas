@@ -384,6 +384,12 @@ button {
   letter-spacing: -0.01em;
 }
 
+.logo img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
 .nav-menu {
   display: flex;
   gap: var(--space-xl);
@@ -440,11 +446,11 @@ button {
    6. HERO СЕКЦИЯ
    ============================================ */
 .hero {
-  min-height: 85vh;
+  min-height: 40vh;
   display: flex;
   align-items: center;
-  padding-top: calc(80px + var(--space-3xl)); /* header height + padding */
-  padding-bottom: var(--space-3xl);
+  padding-top: calc(80px + var(--space-xl));
+  padding-bottom: var(--space-xl);
   background-color: var(--color-beige);
 }
 
@@ -508,8 +514,8 @@ button {
 /* Для вертикального видео (Shorts/Reels) */
 .video-container-9-16 {
   aspect-ratio: 9 / 16;
-  max-width: 400px;  /* Ограничим ширину */
-  margin: 0 auto;    /* Центрируем */
+  max-width: 280px;
+  margin: 0 auto;
 }
 
 /* Для iframe (YouTube/Vimeo) */
@@ -574,6 +580,14 @@ button {
 
 .service-card-description {
   margin-bottom: var(--space-lg);
+}
+
+/* УСЛУГИ */
+.service-card img,
+.about-section img {
+  max-height: 350px;
+  width: 100%;
+  object-fit: cover;
 }
 
 /* ============================================
@@ -676,10 +690,10 @@ button {
 /* Изображения в статье */
 .article-image {
   width: 100%;
-  max-width: 100%;
+  max-width: 600px;
   height: auto;
   border-radius: var(--radius-md);
-  margin: var(--space-2xl) 0;
+  margin: var(--space-xl) auto;
   box-shadow: var(--shadow-lg);
 }
 
@@ -706,8 +720,8 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-sm) var(--space-lg);
-  font-size: var(--text-base);
+  padding: 10px 20px;
+  font-size: 0.95rem;
   font-weight: 500;
   border-radius: var(--radius-sm);
   transition: all var(--transition-base);
