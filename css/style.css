@@ -1044,8 +1044,12 @@ button {
   /* Hero */
   .hero {
     min-height: 70vh;
-    padding-top: calc(70px + var(--space-2xl));
-  }
+    display: flex;
+    align-items: center;
+    padding-top: calc(120px + var(--space-2xl));
+    padding-bottom: var(--space-2xl);
+    background-color: var(--color-beige);
+}
   
   /* О терапевте */
   .about-section {
