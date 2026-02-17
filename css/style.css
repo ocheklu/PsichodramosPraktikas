@@ -444,12 +444,12 @@ button {
    6. HERO СЕКЦИЯ
    ============================================ */
 .hero {
-  min-height: 40vh;
-  display: flex;
-  align-items: center;
-  padding-top: calc(80px + var(--space-xl));
-  padding-bottom: var(--space-xl);
-  background-color: var(--color-beige);
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    padding-top: calc(140px + var(--space-2xl));
+    padding-bottom: var(--space-2xl);
+    background-color: var(--color-beige);
 }
 
 .hero-content {
@@ -1040,16 +1040,17 @@ button {
   .mobile-menu-toggle {
     display: flex;
   }
+
+  /* логотип на мобильных */
+    .logo img {
+        height: 50px;
+    }
   
   /* Hero */
   .hero {
-    min-height: 70vh;
-    display: flex;
-    align-items: center;
-    padding-top: calc(120px + var(--space-2xl));
-    padding-bottom: var(--space-2xl);
-    background-color: var(--color-beige);
-}
+        min-height: 70vh;
+        padding-top: calc(70px + var(--space-2xl));
+    }
   
   /* О терапевте */
   .about-section {
