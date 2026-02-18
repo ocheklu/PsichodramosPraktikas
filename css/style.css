@@ -471,31 +471,38 @@ button {
 }
 
 .hero-rotating {
-    display: inline-block;
-    font-size: var(--text-6xl);
+    display: inline;
+    font-size: var(--text-5xl);
+    font-family: var(--font-heading);
+    font-weight: 350;
     color: var(--color-navy);
     margin-left: var(--space-sm);
     position: relative;
     height: 1.5em;
-    vertical-align: baseline;
+    line-height: 1.1;
 }
 
 .rotate-text {
     position: absolute;
+    left: 0;
+    top: 0;
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.5s ease;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     white-space: nowrap;
+    filter: blur(3px);
 }
 
 .rotate-text.active {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
 }
 
 .rotate-text.exiting {
     opacity: 0;
-    transform: translateY(-30px);
+    transform: translateY(-20px);
+    filter: blur(3px);
 }
 
 /* ============================================
