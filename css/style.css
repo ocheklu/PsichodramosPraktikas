@@ -1083,9 +1083,24 @@ button {
   
   /* Hero */
   .hero {
-        min-height: 70vh;
+        min-height: 60vh;
         padding-top: calc(70px + var(--space-2xl));
     }
+
+    .hero-rotating {
+    display: block;  
+    margin-top: var(--space-sm);
+    margin-left: 0;
+    font-size: var(--text-2xl);
+    height: auto;  
+}
+
+.rotate-text {
+    position: relative;  
+    display: block;
+    left: auto;  
+    top: auto;   
+}
   
   /* О терапевте */
   .about-section {
