@@ -470,6 +470,27 @@ button {
   margin: 0 var(--space-sm);
 }
 
+.hero-rotating {
+    display: block;
+    font-size: var(--text-xl);
+    color: var(--color-teal);
+    margin-top: var(--space-sm);
+    position: relative;
+    height: 1.5em;
+}
+
+.rotate-text {
+    position: absolute;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.rotate-text.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* ============================================
    7. СЕКЦИЯ "О ТЕРАПЕВТЕ"
    ============================================ */
