@@ -51,18 +51,20 @@ if (rotateTexts.length > 0) {
     let currentIndex = 0;
 
     function rotateText() {
-        // Добавляем класс exiting текущему элементу
-        rotateTexts[currentIndex].classList.add('exiting');
-        rotateTexts[currentIndex].classList.remove('active');
+        const current = rotateTexts[currentIndex];
+        const nextIndex = (currentIndex + 1) % rotateTexts.length;
+        const next = rotateTexts[nextIndex];
         
-        // Переключаем на следующий
-        currentIndex = (currentIndex + 1) % rotateTexts.length;
+        // Шаг 1: Текущий элемент уходит вверх
+        current.classList.add('exiting');
+        current.classList.remove('active');
         
-        // Через небольшую задержку убираем exiting и добавляем active
+        // Шаг 2: Через 400ms убираем exiting и показываем следующий
         setTimeout(() => {
-            rotateTexts.forEach(text => text.classList.remove('exiting'));
-            rotateTexts[currentIndex].classList.add('active');
-        }, 100);
+            current.classList.remove('exiting');
+            next.classList.add('active');
+            currentIndex = nextIndex;
+        }, 400);  // Половина времени анимации (0.8s / 2)
     }
 
     setInterval(rotateText, 4000);

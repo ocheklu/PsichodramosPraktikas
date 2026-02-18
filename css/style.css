@@ -478,16 +478,16 @@ button {
     color: var(--color-navy);
     margin-left: var(--space-sm);
     position: relative;
-    height: 1.5em;
-    line-height: 1.1;
+    min-height: 1em;
+    vertical-align: baseline;
 }
 
 .rotate-text {
     position: absolute;
     left: 0;
-    top: 0;
+    top: 50%;
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(calc(-50% + 20px));
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     white-space: nowrap;
     filter: blur(3px);
@@ -495,13 +495,13 @@ button {
 
 .rotate-text.active {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(-50%);
     filter: blur(0);
 }
 
 .rotate-text.exiting {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(calc(-50% - 20px));
     filter: blur(3px);
 }
 
