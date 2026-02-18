@@ -65,6 +65,6 @@ if (rotateTexts.length > 0) {
         }, 100);
     }
 
-    setInterval(rotateText, 3000);
+    setInterval(rotateText, 4000);
 }
 
