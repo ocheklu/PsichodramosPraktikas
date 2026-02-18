@@ -472,8 +472,8 @@ button {
 
 .hero-rotating {
     display: inline-block;
-    font-size: var(--text-xl);
-    color: var(--color-teal);
+    font-size: var(--text-6xl);
+    color: var(--color-navy);
     margin-left: var(--space-sm);
     position: relative;
     height: 1.5em;
@@ -483,13 +483,19 @@ button {
 .rotate-text {
     position: absolute;
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
     transition: all 0.5s ease;
+    white-space: nowrap;
 }
 
 .rotate-text.active {
     opacity: 1;
     transform: translateY(0);
+}
+
+.rotate-text.exiting {
+    opacity: 0;
+    transform: translateY(-30px);
 }
 
 /* ============================================

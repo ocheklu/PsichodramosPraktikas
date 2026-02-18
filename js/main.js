@@ -45,17 +45,26 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Text rotation in hero (только для главной страницы)
+// Text rotation in hero
 const rotateTexts = document.querySelectorAll('.rotate-text');
 if (rotateTexts.length > 0) {
     let currentIndex = 0;
 
     function rotateText() {
+        // Добавляем класс exiting текущему элементу
+        rotateTexts[currentIndex].classList.add('exiting');
         rotateTexts[currentIndex].classList.remove('active');
+        
+        // Переключаем на следующий
         currentIndex = (currentIndex + 1) % rotateTexts.length;
-        rotateTexts[currentIndex].classList.add('active');
+        
+        // Через небольшую задержку убираем exiting и добавляем active
+        setTimeout(() => {
+            rotateTexts.forEach(text => text.classList.remove('exiting'));
+            rotateTexts[currentIndex].classList.add('active');
+        }, 100);
     }
 
-    setInterval(rotateText, 3000); // Меняется каждые 3 секунды
+    setInterval(rotateText, 3000);
 }
 
