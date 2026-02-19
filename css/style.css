@@ -387,47 +387,49 @@ button {
     width: auto;
     display: block;
     transition: filter var(--transition-base);
-    filter: brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(1200%) hue-rotate(175deg) brightness(90%) contrast(95%);
+    /* Базовое состояние: Moss #2C3424 */
+    filter: brightness(0) saturate(100%) invert(15%) sepia(20%) saturate(800%) hue-rotate(60deg) brightness(85%) contrast(95%);
 }
 
 .logo img:hover {
-    filter: brightness(0) saturate(100%) invert(60%) sepia(10%) saturate(600%) hue-rotate(65deg) brightness(95%) contrast(85%);
+    /* Hover: Navy #2F4156 */
+    filter: brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(1200%) hue-rotate(175deg) brightness(90%) contrast(95%);
 }
 
 .nav-menu {
-  display: flex;
-  gap: var(--space-xl);
-  list-style: none;
+    display: flex;
+    gap: var(--space-xl);
+    list-style: none;
 }
 
 .nav-link {
-  font-size: var(--text-base);
-  font-weight: 500;
-  color: var(--color-navy);
-  padding: var(--space-xs) 0;
-  position: relative;
-  transition: color var(--transition-base);
+    font-size: var(--text-base);
+    font-weight: 500;
+    color: #2C3424;  /* Moss вместо Navy */
+    padding: var(--space-xs) 0;
+    position: relative;
+    transition: color var(--transition-base);
 }
 
 .nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: var(--color-teal);
-  transition: width var(--transition-base);
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #2C3424;  /* Moss вместо Teal */
+    transition: width var(--transition-base);
 }
 
 .nav-link:hover,
 .nav-link.active {
-  color: var(--color-teal);
+    color: #2C3424;  /* Moss вместо Teal */
 }
 
 .nav-link:hover::after,
 .nav-link.active::after {
-  width: 100%;
+    width: 100%;
 }
 
 /* Мобильное меню */
