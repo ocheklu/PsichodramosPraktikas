@@ -387,8 +387,8 @@ button {
     width: auto;
     display: block;
     transition: filter var(--transition-base);
-    /* Базовое состояние: Moss #2C3424 */
-    filter: brightness(0) saturate(100%) invert(15%) sepia(20%) saturate(800%) hue-rotate(60deg) brightness(85%) contrast(95%);
+    /* Базовое состояние: Cypress #4C583E */
+    filter: brightness(0) saturate(100%) invert(28%) sepia(18%) saturate(650%) hue-rotate(70deg) brightness(92%) contrast(88%);
 }
 
 .logo img:hover {
@@ -405,7 +405,7 @@ button {
 .nav-link {
     font-size: var(--text-base);
     font-weight: 500;
-    color: #2C3424;  /* Moss вместо Navy */
+    color: #4C583E;  /* Cypress вместо Moss */
     padding: var(--space-xs) 0;
     position: relative;
     transition: color var(--transition-base);
@@ -418,13 +418,12 @@ button {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: #2C3424;  /* Moss вместо Teal */
-    transition: width var(--transition-base);
-}
+    background-color: #4C583E;  /* Cypress */
+   }
 
 .nav-link:hover,
 .nav-link.active {
-    color: #2C3424;  /* Moss вместо Teal */
+    color: #4C583E;  /* Cypress */
 }
 
 .nav-link:hover::after,
