@@ -383,9 +383,15 @@ button {
 }
 
 .logo img {
-  height: 120px;
-  width: auto;
-  display: block;
+    height: 120px;
+    width: auto;
+    display: block;
+    transition: filter var(--transition-base);
+    filter: brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(1200%) hue-rotate(175deg) brightness(90%) contrast(95%);
+}
+
+.logo img:hover {
+    filter: brightness(0) saturate(100%) invert(60%) sepia(10%) saturate(600%) hue-rotate(65deg) brightness(95%) contrast(85%);
 }
 
 .nav-menu {
