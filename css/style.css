@@ -405,7 +405,7 @@ button {
 .nav-link {
     font-size: var(--text-base);
     font-weight: 500;
-    color: #4C583E;  /* Cypress вместо Moss */
+    color: #4C583E;
     padding: var(--space-xs) 0;
     position: relative;
     transition: color var(--transition-base);
@@ -418,12 +418,13 @@ button {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: #4C583E;  /* Cypress */
-   }
+    background-color: #4C583E;
+    transition: width var(--transition-base);
+}
 
 .nav-link:hover,
 .nav-link.active {
-    color: #4C583E;  /* Cypress */
+    color: #4C583E;
 }
 
 .nav-link:hover::after,
