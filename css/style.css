@@ -15,6 +15,7 @@
   --color-white: #FFFFFF;
   --color-sage: #8E9E83;
   --color-dark-green: #2C3A35;
+  --color-cypress: #4C583E;
   
   /* Семантические цвета */
   --color-primary: var(--color-navy);
@@ -624,69 +625,68 @@ button {
   height: 100%;
 }
 
-/* ============================================
-   8. УСЛУГИ
-   ============================================ */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-xl);
-}
-
-.service-card {
-  background-color: var(--color-sky-blue);
-  padding: var(--space-2xl);
-  border-radius: var(--radius-md);
-  transition: all var(--transition-base);
-}
-
-.service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-xl);
-}
-
-.service-card-title {
-  margin-bottom: var(--space-md);
-}
-
-.service-card-description {
-  margin-bottom: var(--space-lg);
-}
-
-/* УСЛУГИ */
-.service-card img,
-.about-section img {
-  max-height: 350px;
-  width: 100%;
-  object-fit: cover;
-}
-
 /* УСЛУГИ на главной */
 
-.service-list-label {
-    margin-top: var(--space-md);
-    margin-bottom: var(--space-xs);
+.services-grid-light {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+    margin-top: var(--space-2xl);
+}
+
+.service-card-light {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-xl);
+    transition: all var(--transition-base);
+    text-align: center;
+}
+
+.service-card-light:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    border-color: var(--color-sage);
+}
+
+.service-icon-light {
+    font-size: 3rem;
+    margin-bottom: var(--space-md);
+    filter: grayscale(30%);
+}
+
+.service-title-light {
+    color: var(--color-navy);
+    margin-bottom: var(--space-sm);
+}
+
+.service-description-light {
+    color: var(--color-text-light);
+    font-size: var(--text-base);
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+}
+
+.service-target {
+    background-color: var(--color-beige);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-sm);
     font-size: var(--text-sm);
+    color: var(--color-text);
+    line-height: 1.6;
+    text-align: left;
 }
 
-.service-list {
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
+.target-label {
+    font-weight: 600;
+    color: #4C583E;
 }
 
-.service-list li {
-    padding-left: 1.2em;
-    margin-bottom: var(--space-xs);
-    position: relative;
-    font-size: var(--text-sm);
-}
-
-.service-list li::before {
-    content: "→";
-    position: absolute;
-    left: 0;
-    color: var(--color-sage);
+/* Для секции "О терапевте" - ОСТАВИТЬ */
+.about-section img {
+    max-height: 350px;
+    width: 100%;
+    object-fit: cover;
 }
 
 /* ============================================
@@ -1173,9 +1173,10 @@ button {
   }
   
   /* Услуги */
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
+ .services-grid-light {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
   
   /* Блог */
   .blog-grid {
