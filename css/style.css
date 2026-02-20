@@ -632,7 +632,7 @@ button {
 .services-breath {
     display: flex;
     flex-direction: column;
-    gap: var(--space-2xl);
+    gap: var(--space-lg);  /* было 2xl → lg (меньше расстояние) */
     margin-top: var(--space-2xl);
     max-width: 900px;
     margin-left: auto;
@@ -641,48 +641,54 @@ button {
 
 .service-breath {
     position: relative;
-    padding: var(--space-2xl);
-    padding-left: var(--space-3xl);
-    background-color: var(--color-white);
-    border-left: 4px solid #4C583E;
-    transition: all var(--transition-slow);
+    padding: var(--space-xl) var(--space-xl) var(--space-xl) var(--space-2xl);  /* компактнее */
+    background-color: #FAFAF9;  /* едва заметный фон для группировки */
+    border-left: 3px solid #4C583E;  /* чуть тоньше */
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;  /* мягкие углы справа */
+    transition: all var(--transition-base);
 }
 
 .service-breath:hover {
-    padding-left: calc(var(--space-3xl) + 8px);
+    background-color: var(--color-white);
+    border-left-width: 4px;
 }
 
 .service-breath-number {
     position: absolute;
-    top: var(--space-xl);
-    left: var(--space-md);
+    top: var(--space-lg);
+    left: var(--space-sm);
     font-family: var(--font-heading);
-    font-size: var(--text-4xl);
+    font-size: var(--text-3xl);  /* было 4xl → 3xl (меньше) */
     font-weight: 300;
     color: #4C583E;
-    opacity: 0.4;
+    opacity: 0.3;
     line-height: 1;
 }
 
 .service-breath-title {
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-sm);  /* было md → sm */
     color: var(--color-navy);
 }
 
 .service-breath-description {
-    font-size: var(--text-lg);
-    line-height: 1.8;
+    font-size: var(--text-base);  /* было lg → base */
+    line-height: 1.7;
     color: var(--color-teal);
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-md);  /* было lg → md */
 }
 
 .service-breath-target {
-    font-size: var(--text-base);
-    line-height: 1.7;
+    font-size: var(--text-sm);  /* было base → sm */
+    line-height: 1.6;
     color: var(--color-text);
-    padding: var(--space-md);
+    padding: var(--space-sm) var(--space-md);  /* компактнее */
     background-color: var(--color-beige);
     border-radius: var(--radius-sm);
+}
+
+.target-label {
+    font-weight: 600;
+    color: #4C583E;
 }
     
 
@@ -1178,22 +1184,17 @@ button {
   
   /* Услуги */
  .services-breath {
-        gap: var(--space-xl);
+        gap: var(--space-md);
     }
     
     .service-breath {
-        padding: var(--space-xl);
-        padding-left: var(--space-2xl);
-    }
-    
-    .service-breath:hover {
-        padding-left: var(--space-2xl);
+        padding: var(--space-md) var(--space-md) var(--space-md) var(--space-xl);
     }
     
     .service-breath-number {
-        font-size: var(--text-3xl);
-        left: var(--space-sm);
-        top: var(--space-md);
+        font-size: var(--text-2xl);
+        left: var(--space-xs);
+        top: var(--space-sm);
     }
   
   /* Блог */
