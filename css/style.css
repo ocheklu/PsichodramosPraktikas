@@ -632,43 +632,31 @@ button {
 .services-breath {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0;
+    gap: var(--space-xl);
     margin-top: var(--space-2xl);
-    background-color: var(--color-white);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    overflow: hidden;
 }
 
 .service-breath {
-    position: relative;
-    padding: var(--space-2xl) var(--space-xl);
-    border-right: 1px solid var(--color-border);
-    transition: background-color var(--transition-base);
-}
-
-.service-breath:last-child {
-    border-right: none;
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-2xl);
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-top: 3px solid #4C583E;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
 }
 
 .service-breath:hover {
-    background-color: var(--color-beige);
-}
-
-.service-breath-number {
-    font-family: var(--font-heading);
-    font-size: var(--text-5xl);
-    font-weight: 300;
-    color: #4C583E;
-    opacity: 0.15;
-    line-height: 1;
-    margin-bottom: var(--space-sm);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(47, 65, 86, 0.08);
+    border-top-color: var(--color-navy);
 }
 
 .service-breath-title {
     margin-bottom: var(--space-md);
     color: var(--color-navy);
-    font-size: var(--text-xl);
+    min-height: 2.8em;
 }
 
 .service-breath-description {
@@ -676,23 +664,22 @@ button {
     line-height: 1.7;
     color: var(--color-teal);
     margin-bottom: var(--space-lg);
+    flex-grow: 1;
 }
 
 .service-breath-target {
     font-size: var(--text-sm);
     line-height: 1.6;
     color: var(--color-text);
-    padding: var(--space-sm) var(--space-md);
-    background-color: rgba(76, 88, 62, 0.05);
-    border-left: 2px solid #4C583E;
+    padding: var(--space-md);
+    background-color: var(--color-beige);
+    border-left: 3px solid #4C583E;
     border-radius: var(--radius-sm);
 }
 
 .target-label {
     font-weight: 600;
     color: #4C583E;
-    display: block;
-    margin-bottom: var(--space-xs);
 }
     
 
@@ -1187,18 +1174,17 @@ button {
   }
   
   /* Услуги */
- .service-breath {
-        border-right: none;
-        border-bottom: 1px solid var(--color-border);
-        padding: var(--space-xl) var(--space-md);
+ .services-breath {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
     }
     
-    .service-breath:last-child {
-        border-bottom: none;
+    .service-breath {
+        padding: var(--space-xl);
     }
     
-    .service-breath-number {
-        font-size: var(--text-4xl);
+    .service-breath-title {
+        min-height: auto;
     }
   
   /* Блог */
