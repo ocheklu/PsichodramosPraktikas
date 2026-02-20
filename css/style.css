@@ -625,62 +625,66 @@ button {
   height: 100%;
 }
 
-/* УСЛУГИ на главной */
+/* ============================================
+   8. УСЛУГИ - "Дыхание"
+   ============================================ */
 
-.services-grid-light {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-xl);
+.services-breath {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xl);
     margin-top: var(--space-2xl);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.service-card-light {
+.service-breath {
+    position: relative;
+    padding: var(--space-2xl);
+    padding-left: var(--space-3xl);
     background-color: var(--color-white);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    padding: var(--space-xl);
-    transition: all var(--transition-base);
-    text-align: center;
+    border-left: 4px solid #4C583E;
+    transition: all var(--transition-slow);
 }
 
-.service-card-light:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    border-color: var(--color-sage);
+.service-breath:hover {
+    padding-left: calc(var(--space-3xl) + 8px);
 }
 
-.service-icon-light {
-    font-size: 3rem;
+.service-breath-number {
+    position: absolute;
+    top: var(--space-xl);
+    left: var(--space-md);
+    font-family: var(--font-heading);
+    font-size: var(--text-4xl);
+    font-weight: 300;
+    color: #4C583E;
+    opacity: 0.4;
+    line-height: 1;
+}
+
+.service-breath-title {
     margin-bottom: var(--space-md);
-    filter: grayscale(30%);
-}
-
-.service-title-light {
     color: var(--color-navy);
-    margin-bottom: var(--space-sm);
 }
 
-.service-description-light {
-    color: var(--color-text-light);
+.service-breath-description {
+    font-size: var(--text-lg);
+    line-height: 1.8;
+    color: var(--color-teal);
+    margin-bottom: var(--space-lg);
+}
+
+.service-breath-target {
     font-size: var(--text-base);
     line-height: 1.7;
-    margin-bottom: var(--space-md);
-}
-
-.service-target {
-    background-color: var(--color-beige);
-    padding: var(--space-sm) var(--space-md);
-    border-radius: var(--radius-sm);
-    font-size: var(--text-sm);
     color: var(--color-text);
-    line-height: 1.6;
-    text-align: left;
+    padding: var(--space-md);
+    background-color: var(--color-beige);
+    border-radius: var(--radius-sm);
 }
-
-.target-label {
-    font-weight: 600;
-    color: #4C583E;
-}
+    
 
 /* Для секции "О терапевте" - ОСТАВИТЬ */
 .about-section img {
@@ -1173,9 +1177,23 @@ button {
   }
   
   /* Услуги */
- .services-grid-light {
-        grid-template-columns: 1fr;
-        gap: var(--space-lg);
+ .services-breath {
+        gap: var(--space-xl);
+    }
+    
+    .service-breath {
+        padding: var(--space-xl);
+        padding-left: var(--space-2xl);
+    }
+    
+    .service-breath:hover {
+        padding-left: var(--space-2xl);
+    }
+    
+    .service-breath-number {
+        font-size: var(--text-3xl);
+        left: var(--space-sm);
+        top: var(--space-md);
     }
   
   /* Блог */
