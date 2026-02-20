@@ -632,30 +632,34 @@ button {
 .services-breath {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-xl);
+    gap: 0;
     margin-top: var(--space-2xl);
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
 }
 
 .service-breath {
     display: flex;
     flex-direction: column;
-    padding: var(--space-2xl);
-    background-color: var(--color-white);
-    border: 1px solid var(--color-border);
-    border-top: 3px solid #4C583E;
-    border-radius: var(--radius-md);
-    transition: all var(--transition-base);
+    padding: var(--space-2xl) var(--space-xl);
+    border-right: 1px solid var(--color-border);
+    transition: background-color var(--transition-base);
+}
+
+.service-breath:last-child {
+    border-right: none;
 }
 
 .service-breath:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(47, 65, 86, 0.08);
-    border-top-color: var(--color-navy);
+    background-color: var(--color-beige);
 }
 
 .service-breath-title {
     margin-bottom: var(--space-md);
     color: var(--color-navy);
+    font-size: var(--text-xl);
     min-height: 2.8em;
 }
 
@@ -671,15 +675,17 @@ button {
     font-size: var(--text-sm);
     line-height: 1.6;
     color: var(--color-text);
-    padding: var(--space-md);
-    background-color: var(--color-beige);
-    border-left: 3px solid #4C583E;
+    padding: var(--space-sm) var(--space-md);
+    background-color: rgba(76, 88, 62, 0.05);
+    border-left: 2px solid #4C583E;
     border-radius: var(--radius-sm);
 }
 
 .target-label {
     font-weight: 600;
     color: #4C583E;
+    display: block;
+    margin-bottom: var(--space-xs);
 }
     
 
@@ -1176,11 +1182,16 @@ button {
   /* Услуги */
  .services-breath {
         grid-template-columns: 1fr;
-        gap: var(--space-lg);
     }
     
     .service-breath {
-        padding: var(--space-xl);
+        border-right: none;
+        border-bottom: 1px solid var(--color-border);
+        padding: var(--space-xl) var(--space-md);
+    }
+    
+    .service-breath:last-child {
+        border-bottom: none;
     }
     
     .service-breath-title {
