@@ -356,7 +356,7 @@ button {
 }
 
 .section-bg-mist {
-  background-color: #F0EAE0;
+  background-color: var(--color-beige);
 }
 
 /* ============================================
