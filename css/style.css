@@ -831,6 +831,7 @@ a.service-breath {
 }
 
 .article-content p {
+  font-size: var(--text-base);
   margin-bottom: var(--space-lg);
 }
 
@@ -847,11 +848,12 @@ a.service-breath {
 /* Изображения в статье */
 .article-image {
   width: 100%;
-  max-width: 600px;
+  max-width: 420px;
   height: auto;
   border-radius: var(--radius-md);
   margin: var(--space-xl) auto;
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-md);
+  display: block;
 }
 
 .article-image-caption {
@@ -864,10 +866,16 @@ a.service-breath {
 
 /* Навигация статьи */
 .article-nav {
-  margin-top: var(--space-3xl);
+  margin-top: var(--space-2xl);
   padding-top: var(--space-xl);
+  padding-bottom: var(--space-xl);
   border-top: 1px solid var(--color-border);
   text-align: center;
+}
+
+/* Сетка "Kiti tekstai" — 3 колонки на десктопе */
+.blog-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 /* ============================================
@@ -1276,10 +1284,29 @@ a.service-breath {
     gap: var(--space-md);
     text-align: center;
   }
-  
+
   .footer-links {
     flex-direction: column;
     gap: var(--space-sm);
+  }
+
+  /* Страница статьи — мобильная адаптация */
+  .text-lead {
+    font-size: var(--text-lg);
+  }
+
+  .article-image {
+    max-width: 100%;
+    margin: var(--space-lg) auto;
+  }
+
+  .article-nav {
+    margin-top: var(--space-lg);
+    padding-top: var(--space-lg);
+  }
+
+  .blog-grid-3 {
+    grid-template-columns: 1fr;
   }
 }
 
