@@ -836,6 +836,8 @@ a.service-breath {
 }
 
 .article-content h2 {
+  font-size: var(--text-2xl);
+  text-align: center;
   margin-top: var(--space-2xl);
   margin-bottom: var(--space-md);
 }
