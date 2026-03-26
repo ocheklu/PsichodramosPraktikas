@@ -810,7 +810,7 @@ a.service-breath {
 /* Страница отдельной статьи */
 .article-header {
   max-width: 800px;
-  margin: 0 auto var(--space-2xl);
+  margin: 0 auto;
   text-align: center;
 }
 
@@ -839,7 +839,7 @@ a.service-breath {
   font-size: var(--text-2xl);
   text-align: center;
   margin-top: var(--space-2xl);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-xs);
 }
 
 .article-content h3 {
@@ -866,13 +866,33 @@ a.service-breath {
   font-style: italic;
 }
 
-/* Навигация статьи */
+/* Навигация статьи (не используется, сохранено для других страниц) */
 .article-nav {
   margin-top: var(--space-2xl);
   padding-top: var(--space-xl);
   padding-bottom: var(--space-xl);
   border-top: 1px solid var(--color-border);
   text-align: center;
+}
+
+/* Блок "Kiti tekstai" — мягкое органичное завершение статьи */
+.related-articles {
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-3xl);
+}
+
+.related-articles-header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.related-articles-title {
+  font-family: var(--font-primary);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: var(--color-teal);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 /* Сетка "Kiti tekstai" — 3 колонки на десктопе */
@@ -1216,15 +1236,16 @@ a.service-breath {
   }
 
   /* логотип на мобильных */
-    .logo img {
-        height: 50px;
-    }
-  
+  .logo img {
+    height: 32px;
+  }
+
   /* Hero */
   .hero {
-        min-height: 60vh;
-        padding-top: calc(70px + var(--space-2xl));
-    }
+    min-height: 0;
+    padding-top: calc(70px + var(--space-xl));
+    padding-bottom: var(--space-xl);
+  }
 
     .hero-rotating {
     display: block;  
@@ -1309,6 +1330,11 @@ a.service-breath {
 
   .blog-grid-3 {
     grid-template-columns: 1fr;
+  }
+
+  .related-articles {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-2xl);
   }
 }
 
