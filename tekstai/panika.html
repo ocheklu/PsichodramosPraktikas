@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="lt">
 <head>
     <meta charset="UTF-8">
@@ -52,15 +52,18 @@
     <!-- Stichijos cards styles -->
     <style>
         .stichijos-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-xl);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-2xl);
             margin: var(--space-2xl) 0;
         }
         .stichija-card {
             background: var(--color-beige);
             border-radius: var(--radius-md);
             overflow: hidden;
+            width: 100%;
+            max-width: 560px;
         }
         .stichija-card img {
             width: 100%;
@@ -69,7 +72,7 @@
             display: block;
         }
         .stichija-card-body {
-            padding: var(--space-lg);
+            padding: var(--space-xl);
         }
         .stichija-card-title {
             font-family: var(--font-primary);
@@ -82,11 +85,6 @@
         .stichija-card-body p {
             font-size: var(--text-sm);
             margin-bottom: 0;
-        }
-        @media (max-width: 768px) {
-            .stichijos-grid {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 
@@ -152,7 +150,7 @@
         <div class="container">
             <div class="article-header">
                 <p class="subheading-sm mb-sm text-light">SAVIPAGALBA, NERIMAS</p>
-                <h1 class="heading-1 article-title">Panika |<br>Kaip nusiraminti</h1>
+                <h1 class="heading-1 article-title">Panika | Kaip nusiraminti?</h1>
                 <time class="meta-text" datetime="2023-04-02">BALANDIS 2, 2023</time>
                     <span class="meta-text">·</span>
                     <span class="meta-text">3 MIN SKAITYMO</span>
@@ -224,42 +222,28 @@
                     Žingsnis po žingsnio:
                 </p>
 
-                <div style="margin: var(--space-lg) 0;">
-                    <div style="margin-bottom: var(--space-md);">
-                        <p><strong>Kvėpuoti.</strong> Taip pradėsime grąžinti Orą.</p>
-                    </div>
-                    <div style="margin-bottom: var(--space-md);">
-                        <p>Inicijuoti ir <strong>stebėti fizinį pojūtį.</strong> Taip pradėsime grąžinti Žemę.</p>
-                    </div>
-                    <div style="margin-bottom: var(--space-md);">
-                        <p>Garsiai įvardyti, kas jūs, kur esate, <strong>ką matote ir jaučiate šią akimirką.</strong> Pavyzdžiui, aš (vardas, pavardė) esu Vilniaus parke (vietos pavadinimas), stoviu abiem savo kojomis ant žalios pievos. Esu apsirengęs raudoną striukę su juodu užtrauktuku. Aviu 43 dydžio baltus batus, šiek tiek suspaustas didelis kairės kojos pirštas. Taip tęsime grąžinti Žemę.</p>
-                    </div>
-                    <div style="margin-bottom: var(--space-md);">
-                        <p><strong>Susitikti su jus mylinčiu žmogumi.</strong> Jei šiuo metu tokio žmogaus nėra šalia – kreiptis į emocinės paramos specialistus, pavyzdžiui Jaunimo liniją. Taip pradėsime grąžinti Šviesą.</p>
-                    </div>
-                </div>
-
-                <p>
-                    Atliekant išvardintus žingsnius gali kilti papildomi fiziniai pojūčiai – pavyzdžiui, dilgčiojimas ar atsipalaidavimas. Tai yra geras ženklas - vyksta komunikacija su kūnu. Nieko analizuoti nereikia. Tiesiog stebime ir fiksuojame.
-                </p>
+                <p><strong>Kvėpuoti.</strong> Taip pradėsime grąžinti Orą. Inicijuoti ir <strong>stebėti fizinį pojūtį</strong>. Taip pradėsime grąžinti Žemę. Garsiai įvardyti, kas jūs, kur esate, <strong>ką matote ir jaučiate šią akimirką</strong>. Pavyzdžiui, aš (vardas, pavardė) esu Vilniaus parke (vietos pavadinimas), stoviu abiem savo kojomis ant žalios pievos. Esu apsirengęs raudoną striukę su juodu užtrauktuku. Aviu 43 dydžio baltus batus, šiek tiek suspaustas didelis kairės kojos pirštas. Taip tęsime grąžinti Žemę. <strong>Susitikti su jus mylinčiu žmogumi</strong>. Jei šiuo metu tokio žmogaus nėra šalia – kreiptis į emocinės paramos specialistus, pavyzdžiui Jaunimo liniją. Taip pradėsime grąžinti Šviesą. Atliekant išvardintus žingsnius gali kilti papildomi fiziniai pojūčiai – pavyzdžiui, dilgčiojimas ar atsipalaidavimas. Tai yra geras ženklas - vyksta komunikacija su kūnu. Nieko analizuoti nereikia. Tiesiog stebime ir fiksuojame.</p>
 
                 <p>
                     Sugrįžus į savo fizinį kūną, turbūt kils klausimas, kaip jame likti.
                 </p>
 
-                <div class="stichija-card" style="max-width: 460px;">
-                    <img
-                        src="../images/blog/panika-kune.jpg"
-                        alt="Dėmesys kūnui – palaikyti kontaktą"
-                        loading="lazy"
-                    >
-                    <div class="stichija-card-body">
-                        <p class="stichija-card-title">Dėmesys kūnui</p>
-                        <p>Likti kūne gali padėti bet kas, kas bus malonu jūsų kūnui: šviežiai spaustos sultys, saulės spinduliai, joga arba pagal mano patirtį, efektyviausia – šokių terapijos praktika. Svarbu palaikyti kontaktą su kūnu.</p>
+                
+                <div style="display: flex; justify-content: center; margin: var(--space-2xl) 0;">
+                    <div class="stichija-card">
+                        <img
+                            src="../images/blog/panika-kune.jpg"
+                            alt="Dėmesys kūnui – palaikyti kontaktą"
+                            loading="lazy"
+                        >
+                        <div class="stichija-card-body">
+                            <p class="stichija-card-title">Dėmesys kūnui</p>
+                            <p>Likti kūne gali padėti bet kas, kas bus malonu jūsų kūnui: šviežiai spaustos sultys, saulės spinduliai, joga arba pagal mano patirtį, efektyviausia – šokių terapijos praktika. Svarbu palaikyti kontaktą su kūnu.</p>
+                        </div>
                     </div>
                 </div>
 
-                <p>
+                <p style="margin-top: var(--space-2xl);">
                     Pilnai išlaikyti sveiką būseną padės trūkstančių Gamtos Stichijų papildymas ir jų subalansavimas. Apie tai išsamiai galima perskaityti naujoje gamtos, meilės ir žemiškos gyvenimo prasmės psichologijos knygoje „Penkios Meilės Stichijos“ (autorės – meditacijų mokytoja Agnė Vėželytė ir psichoterapeutė, šokių terapijos instruktorė Lina Dirmotė).
                 </p>
 
