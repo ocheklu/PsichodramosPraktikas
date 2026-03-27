@@ -830,7 +830,7 @@ a.service-breath {
   margin: 0 auto;
 }
 
-.article-content p {
+.article-content p:not(.share-label) {
   font-size: var(--text-base);
   margin-bottom: var(--space-lg);
 }
