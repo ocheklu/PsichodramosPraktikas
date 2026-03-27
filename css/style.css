@@ -1390,6 +1390,10 @@ a.service-breath {
     font-size: var(--text-lg);
   }
 
+  .article-content p:not(.share-label) {
+    margin-bottom: var(--space-md);
+  }
+
   .article-image {
     max-width: 100%;
     margin: var(--space-lg) auto;
@@ -1407,6 +1411,35 @@ a.service-breath {
   .related-articles {
     padding-top: var(--space-xl);
     padding-bottom: var(--space-2xl);
+  }
+
+  /* Hero: rotate-text — скрыть неактивные элементы,
+     иначе занимают место в потоке на мобиле */
+  .rotate-text:not(.active) {
+    display: none;
+  }
+
+  /* Изображения услуг — портрет слишком высокий в 1-колонке */
+  .service-image-portrait {
+    width: 85%;
+    aspect-ratio: 4 / 3;
+  }
+
+  /* Blog-grid gap в 1-колонке */
+  .blog-grid {
+    gap: var(--space-lg);
+  }
+
+  /* section-header margin */
+  .section-header {
+    margin-bottom: var(--space-xl);
+  }
+
+  /* Email в контактах — длинная строка без переноса */
+  .contact-item-value {
+    font-size: var(--text-base);
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 }
 
@@ -1428,6 +1461,11 @@ a.service-breath {
 
   .blog-card-image {
     aspect-ratio: 3 / 4;
+  }
+
+  /* Share-кнопки: меньший gap на маленьких экранах */
+  .share-buttons {
+    gap: var(--space-sm);
   }
 
   /* Исправляем отступы в маленьких экранах */
