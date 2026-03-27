@@ -729,6 +729,11 @@ a.service-breath {
     object-fit: cover;
 }
 
+/* Скрыть mobile-only изображения по умолчанию (показываются только на мобиле) */
+.service-image-mobile-only {
+    display: none;
+}
+
 /* Вертикальный (портретный) контейнер для изображений услуг */
 .service-image-portrait {
     width: 70%;
@@ -1440,6 +1445,40 @@ a.service-breath {
     font-size: var(--text-base);
     overflow-wrap: break-word;
     word-break: break-word;
+  }
+
+  /* 2A: About section на главной — видео первым на мобиле */
+  .about-section-home .about-content {
+    order: 2;
+  }
+  .about-section-home .video-container-9-16 {
+    order: 1;
+  }
+
+  /* 2B: Service images — показывать mobile-only, скрывать desktop-only */
+  .service-image-mobile-only {
+    display: block;
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-lg);
+  }
+  .service-image-desktop-only {
+    display: none;
+  }
+
+  /* 2C: Hero — центрировать на мобиле */
+  .hero-content {
+    text-align: center;
+  }
+
+  /* 2C: Service breath target label — центрировать в 1-колонке */
+  .service-breath-target {
+    text-align: center;
+  }
+
+  /* 2C: Blog card dates — центрировать */
+  .blog-card-date {
+    display: block;
+    text-align: center;
   }
 }
 
