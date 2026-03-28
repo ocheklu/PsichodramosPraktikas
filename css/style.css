@@ -1498,7 +1498,6 @@ a.service-breath {
  .services-breath {
         display: flex;
         flex-direction: column;
-        background-color: #5D768B;
     }
 
     .service-breath {
