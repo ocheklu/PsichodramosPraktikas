@@ -75,7 +75,7 @@ const videoPlayBtn = document.querySelector('.video-play-btn');
 if (videoPlayBtn) {
     const video = videoPlayBtn.closest('.video-container').querySelector('video');
 
-    videoPlayBtn.addEventListener('click', () => {
+    function toggleVideo() {
         if (video.paused) {
             video.play();
             videoPlayBtn.classList.add('hidden');
@@ -83,6 +83,17 @@ if (videoPlayBtn) {
             video.pause();
             videoPlayBtn.classList.remove('hidden');
         }
+    }
+
+    // Клик по кнопке — stopPropagation чтобы не всплывал до видео
+    videoPlayBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleVideo();
+    });
+
+    // Клик по самому видео — пауза/воспроизведение
+    video.addEventListener('click', () => {
+        toggleVideo();
     });
 
     video.addEventListener('ended', () => {

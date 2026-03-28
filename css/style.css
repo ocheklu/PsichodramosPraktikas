@@ -1424,12 +1424,12 @@ a.service-breath {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 160px;
+    height: 100px;
     background: linear-gradient(
       to bottom,
       transparent 0%,
-      rgba(255, 255, 255, 0.3) 40%,
-      rgba(255, 255, 255, 0.7) 70%,
+      transparent 40%,
+      rgba(255, 255, 255, 0.6) 70%,
       #ffffff 100%
     );
     pointer-events: none;
@@ -1496,7 +1496,9 @@ a.service-breath {
   
   /* Услуги */
  .services-breath {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-lg);
     }
     
     .service-breath {
@@ -1712,16 +1714,12 @@ a.service-breath {
   /* 3: Service card content — center + spacing on mobile */
   .service-breath {
     text-align: center;
-    margin-bottom: var(--space-lg);
     padding: var(--space-lg);
   }
   .service-breath-description {
     text-align: left;
     hyphens: auto;
     -webkit-hyphens: auto;
-  }
-  .service-breath:last-child {
-    margin-bottom: 0;
   }
 
   /* Services section — dark background on mobile */
@@ -1736,14 +1734,34 @@ a.service-breath {
     color: rgba(255, 255, 255, 0.75);
   }
 
-  /* 4a: Blog card content — center on mobile, descriptions left */
+  /* 4a: Blog card content — dark background on mobile */
   .blog-card-content {
     text-align: center;
+    background-color: #5D768B;
+    padding: var(--space-md);
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+  }
+  .blog-card-title,
+  .blog-card-title a {
+    color: #ffffff;
   }
   .blog-card-description {
+    color: rgba(255, 255, 255, 0.80);
     text-align: left;
     hyphens: auto;
     -webkit-hyphens: auto;
+  }
+  .blog-card-date {
+    color: rgba(255, 255, 255, 0.60);
+  }
+  .blog-card-content .btn {
+    border-color: rgba(255, 255, 255, 0.5);
+    color: #ffffff;
+    background: transparent;
+  }
+  .blog-card-content .btn:hover {
+    background: #ffffff;
+    color: #5D768B;
   }
 
   /* 4b: Blog title — pipe stays visible, second part on new line */
