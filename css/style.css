@@ -1344,7 +1344,7 @@ a.service-breath {
   /* Hero */
   .hero {
     min-height: 30vh;
-    padding-top: calc(70px + var(--space-xl));
+    padding-top: calc(130px + var(--space-md));
     padding-bottom: var(--space-xl);
   }
 
@@ -1531,10 +1531,14 @@ a.service-breath {
     text-align: center;
   }
   .about-description {
-    text-align: center;
+    text-align: left;
+    hyphens: auto;
+    -webkit-hyphens: auto;
   }
   .about-content .text-light {
-    text-align: center;
+    text-align: left;
+    hyphens: auto;
+    -webkit-hyphens: auto;
   }
 
   /* 3: Service card content — center + spacing on mobile */
@@ -1542,13 +1546,23 @@ a.service-breath {
     text-align: center;
     margin-bottom: var(--space-lg);
   }
+  .service-breath-description {
+    text-align: left;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
   .service-breath:last-child {
     margin-bottom: 0;
   }
 
-  /* 4a: Blog card content — center on mobile */
+  /* 4a: Blog card content — center on mobile, descriptions left */
   .blog-card-content {
     text-align: center;
+  }
+  .blog-card-description {
+    text-align: left;
+    hyphens: auto;
+    -webkit-hyphens: auto;
   }
 
   /* 4b: Blog title — pipe stays visible, second part on new line */
@@ -1560,8 +1574,8 @@ a.service-breath {
   .heading-hero, .heading-1, .heading-2, .heading-3, .heading-4, .heading-5,
   .subheading-hero, .subheading-lg, .subheading-sm,
   .section-title, .about-title,
-  .service-breath-title, .service-breath-description, .service-breath-target,
-  .blog-card-title, .blog-card-description, .blog-card-date,
+  .service-breath-title, .service-breath-target,
+  .blog-card-title, .blog-card-date,
   .related-articles-title, .article-title,
   .meta-date, .target-label, .text-lead {
     text-wrap: balance;
