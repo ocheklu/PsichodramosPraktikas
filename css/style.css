@@ -744,6 +744,10 @@ a.service-breath {
     display: inline;
 }
 
+/* Логотип: десктоп показывает полный, мобиле — только иконку */
+.logo-desktop { display: inline; }
+.logo-mobile  { display: none; }
+
 /* title-break — inline on desktop */
 .title-break {
     display: inline;
@@ -971,7 +975,7 @@ a.service-breath {
 
 /* Пропорции карточек в блоке "Kiti tekstai" */
 .related-articles .blog-card-image {
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 5 / 6;
   object-fit: cover;
 }
 
@@ -1334,13 +1338,12 @@ a.service-breath {
   }
 
   /* логотип на мобильных */
-  .logo img {
-    height: 64px;
-  }
+  .logo-desktop { display: none; }
+  .logo-mobile  { display: block; height: 40px; }
 
   /* Hero */
   .hero {
-    min-height: 0;
+    min-height: 100svh;
     padding-top: calc(70px + var(--space-xl));
     padding-bottom: var(--space-xl);
   }
@@ -1518,11 +1521,6 @@ a.service-breath {
   /* mobile-br — visible on mobile only */
   .mobile-br {
     display: block;
-  }
-
-  /* 1C: Hero pipe — hide on mobile */
-  .hero-pipe {
-    display: none;
   }
 
   /* 2: About section title/subtitle/description — center on mobile */
