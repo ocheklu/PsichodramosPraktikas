@@ -1330,11 +1330,11 @@ a.service-breath {
   }
   
   .nav-menu.active {
-    display: flex;
+    display: none;
   }
-  
+
   .mobile-menu-toggle {
-    display: flex;
+    display: none;
   }
 
   /* логотип на мобильных */
@@ -1686,6 +1686,60 @@ a.service-breath {
   .service-breath {
     padding: var(--space-lg) var(--space-sm);
   }
+}
+
+/* ============================================
+   BOTTOM NAVIGATION BAR — mobile only
+   ============================================ */
+.nav-bottom {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .nav-bottom {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background-color: #5D768B;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.12);
+        padding: 8px 0 max(8px, env(safe-area-inset-bottom));
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .nav-bottom-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        color: rgba(255, 255, 255, 0.55);
+        text-decoration: none;
+        font-size: 10px;
+        font-family: var(--font-primary);
+        letter-spacing: 0.03em;
+        min-width: 44px;
+        min-height: 44px;
+        justify-content: center;
+        transition: color 0.2s ease;
+        padding: 0 8px;
+    }
+
+    .nav-bottom-item.active,
+    .nav-bottom-item:hover {
+        color: #ffffff;
+    }
+
+    .nav-bottom-item svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    body {
+        padding-bottom: calc(65px + env(safe-area-inset-bottom));
+    }
 }
 
 /* Очень маленькие экраны (до 375px) */
