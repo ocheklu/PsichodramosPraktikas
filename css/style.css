@@ -1344,13 +1344,13 @@ a.service-breath {
 
   /* ── HERO MOBILE REDESIGN ── */
 
-  /* 1. Контейнер: воздух сверху, контент у низа */
+  /* 1. Контейнер: центрирование */
   .hero {
     position: relative;
     min-height: 85vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     padding-top: var(--space-4xl);
     padding-bottom: var(--space-2xl);
@@ -1378,12 +1378,32 @@ a.service-breath {
     z-index: 0;
   }
 
-  /* 3. Контент над орбом */
+  /* 2b. Градиентный оверлей снизу */
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      #FAF9F6 100%
+    );
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  /* 3. Контент над орбом и градиентом */
   .hero-content,
   .article-header {
     position: relative;
-    z-index: 1;
+    z-index: 3;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
   }
 
@@ -1405,14 +1425,14 @@ a.service-breath {
     display: none;
   }
 
-  /* 6. Rotating text — маленький приглушённый caption */
+  /* 6. Rotating text */
   .hero-rotating {
     display: block;
     position: relative;
     margin-top: var(--space-xs);
     margin-left: 0;
-    height: 1.4em;
-    font-size: var(--text-sm);
+    height: 1.6em;
+    font-size: clamp(1.1rem, 5vw, 1.4rem);
     color: var(--color-text-light);
   }
 
@@ -1423,7 +1443,7 @@ a.service-breath {
     top: 0;
     text-align: center;
     transform: translateY(8px);
-    font-size: var(--text-sm);
+    font-size: clamp(1.1rem, 5vw, 1.4rem);
     color: var(--color-text-light);
   }
   
