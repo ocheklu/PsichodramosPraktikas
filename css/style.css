@@ -739,6 +739,11 @@ a.service-breath {
     display: none;
 }
 
+/* hero-pipe — видим на десктопе, скрывается на мобиле */
+.hero-pipe {
+    display: inline;
+}
+
 /* title-break — inline on desktop */
 .title-break {
     display: inline;
@@ -1345,17 +1350,16 @@ a.service-breath {
     position: relative;
     margin-top: var(--space-sm);
     margin-left: 0;
-    font-size: var(--text-2xl);
-    height: 2em;
+    height: 1.5em;
 }
 
   .rotate-text {
     position: absolute;
     left: 0;
     right: 0;
-    top: 50%;
-    transform: translateY(calc(-50% + 8px));
+    top: 0;
     text-align: center;
+    transform: translateY(8px);
   }
   
   /* О терапевте */
@@ -1440,17 +1444,17 @@ a.service-breath {
   /* Hero: rotate-text — active/exiting opacity transitions on mobile */
   .rotate-text.active {
     opacity: 1;
-    transform: translateY(-50%);
+    transform: translateY(0);
     filter: blur(0);
   }
   .rotate-text.exiting {
     opacity: 0;
-    transform: translateY(calc(-50% - 8px));
+    transform: translateY(-8px);
     filter: blur(2px);
   }
   .rotate-text:not(.active):not(.exiting) {
     opacity: 0;
-    transform: translateY(calc(-50% + 8px));
+    transform: translateY(8px);
     filter: blur(2px);
   }
 
@@ -1511,28 +1515,37 @@ a.service-breath {
     text-align: center;
   }
 
-  /* 1D: Hero title — Inter on mobile */
-  .hero-title {
-    font-family: var(--font-primary);
-    font-weight: 500;
-  }
-
   /* mobile-br — visible on mobile only */
   .mobile-br {
     display: block;
   }
 
-  /* 2: About section title/subtitle — center on mobile */
+  /* 1C: Hero pipe — hide on mobile */
+  .hero-pipe {
+    display: none;
+  }
+
+  /* 2: About section title/subtitle/description — center on mobile */
   .about-title {
     text-align: center;
   }
   .about-content .subheading-lg {
     text-align: center;
   }
+  .about-description {
+    text-align: center;
+  }
+  .about-content .text-light {
+    text-align: center;
+  }
 
-  /* 3: Service card content — center on mobile */
+  /* 3: Service card content — center + spacing on mobile */
   .service-breath {
     text-align: center;
+    margin-bottom: var(--space-lg);
+  }
+  .service-breath:last-child {
+    margin-bottom: 0;
   }
 
   /* 4a: Blog card content — center on mobile */
@@ -1540,10 +1553,7 @@ a.service-breath {
     text-align: center;
   }
 
-  /* 4b: Blog title pipe — hide on mobile, second part on new line */
-  .title-pipe {
-    display: none;
-  }
+  /* 4b: Blog title — pipe stays visible, second part on new line */
   .title-break {
     display: block;
   }
