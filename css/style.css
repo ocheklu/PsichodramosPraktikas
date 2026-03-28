@@ -1337,9 +1337,10 @@ a.service-breath {
     display: none;
   }
 
-  /* логотип на мобильных */
-  .logo .logo-desktop { display: none; }
-  .logo .logo-mobile  { display: block; height: 80px; }
+  /* Скрыть header на мобиле */
+  .header {
+    display: none;
+  }
 
   /* ── HERO MOBILE REDESIGN ── */
 
