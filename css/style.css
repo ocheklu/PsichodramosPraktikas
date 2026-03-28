@@ -1339,11 +1339,11 @@ a.service-breath {
 
   /* логотип на мобильных */
   .logo .logo-desktop { display: none; }
-  .logo .logo-mobile  { display: block; height: 40px; }
+  .logo .logo-mobile  { display: block; height: 80px; }
 
   /* Hero */
   .hero {
-    min-height: 50vh;
+    min-height: 30vh;
     padding-top: calc(70px + var(--space-xl));
     padding-bottom: var(--space-xl);
   }
@@ -1556,50 +1556,24 @@ a.service-breath {
     display: block;
   }
 
-  /* 6: text-wrap: balance — короткие центрированные заголовки и карточки */
-
-  /* Section titles */
-  .section-title {
+  /* 6: text-wrap: balance — все заголовки и короткие блоки на мобиле */
+  .heading-hero, .heading-1, .heading-2, .heading-3, .heading-4, .heading-5,
+  .subheading-hero, .subheading-lg, .subheading-sm,
+  .section-title, .about-title,
+  .service-breath-title, .service-breath-description, .service-breath-target,
+  .blog-card-title, .blog-card-description, .blog-card-date,
+  .related-articles-title, .article-title,
+  .meta-date, .target-label, .text-lead {
     text-wrap: balance;
-    max-width: 300px;
-    margin-left: auto;
-    margin-right: auto;
   }
 
-  /* About section */
-  .about-title {
-    text-wrap: balance;
-    max-width: 300px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+  /* Короткие центрированные заголовки — ограничение ширины */
+  .section-title,
+  .about-title,
   .about-content .subheading-lg {
-    text-wrap: balance;
     max-width: 300px;
     margin-left: auto;
     margin-right: auto;
-  }
-
-  /* Service cards */
-  .service-breath-title {
-    text-wrap: balance;
-  }
-  .service-breath-description {
-    text-wrap: balance;
-  }
-  .service-breath-target {
-    text-wrap: balance;
-  }
-
-  /* Blog card titles, descriptions, dates */
-  .blog-card-title {
-    text-wrap: balance;
-  }
-  .blog-card-description {
-    text-wrap: balance;
-  }
-  .blog-card-date {
-    text-wrap: balance;
   }
 }
 
