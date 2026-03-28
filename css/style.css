@@ -1341,20 +1341,79 @@ a.service-breath {
   .logo .logo-desktop { display: none; }
   .logo .logo-mobile  { display: block; height: 80px; }
 
-  /* Hero */
+  /* ── HERO MOBILE REDESIGN ── */
+
+  /* 1. Контейнер: воздух сверху, контент у низа */
   .hero {
-    min-height: 30vh;
-    padding-top: calc(130px + var(--space-md));
-    padding-bottom: var(--space-xl);
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-top: var(--space-4xl);
+    padding-bottom: var(--space-2xl);
+    border-bottom: 1px solid var(--color-border);
   }
 
-    .hero-rotating {
+  /* 2. Градиентный орб в верхней части */
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(
+      circle,
+      rgba(93, 118, 139, 0.15) 0%,
+      rgba(200, 179, 155, 0.10) 50%,
+      transparent 70%
+    );
+    border-radius: 50%;
+    filter: blur(40px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* 3. Контент над орбом */
+  .hero-content,
+  .article-header {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* 4. Типографика */
+  .heading-hero {
+    font-size: clamp(2rem, 8vw, 2.8rem);
+    font-weight: 400;
+    text-wrap: balance;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.9rem, 4vw, 1.1rem);
+    letter-spacing: 0.05em;
+    color: var(--color-text-light);
+  }
+
+  /* 5. Скрыть разделитель "|" на мобиле */
+  .hero-pipe {
+    display: none;
+  }
+
+  /* 6. Rotating text — маленький приглушённый caption */
+  .hero-rotating {
     display: block;
     position: relative;
-    margin-top: var(--space-sm);
+    margin-top: var(--space-xs);
     margin-left: 0;
-    height: 1.5em;
-}
+    height: 1.4em;
+    font-size: var(--text-sm);
+    color: var(--color-text-light);
+  }
 
   .rotate-text {
     position: absolute;
@@ -1363,6 +1422,8 @@ a.service-breath {
     top: 0;
     text-align: center;
     transform: translateY(8px);
+    font-size: var(--text-sm);
+    color: var(--color-text-light);
   }
   
   /* О терапевте */
