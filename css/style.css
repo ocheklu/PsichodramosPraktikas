@@ -714,7 +714,7 @@ a.service-breath {
 .target-label {
     font-size: var(--text-xs);
     font-weight: 600;
-    color: var(--color-sage);
+    color: #5D768B;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     display: block;
@@ -1354,7 +1354,7 @@ a.service-breath {
     align-items: center;
     padding-top: var(--space-4xl);
     padding-bottom: var(--space-2xl);
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: none;
   }
 
   /* 2. Градиентный орб в верхней части */
@@ -1385,10 +1385,12 @@ a.service-breath {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 80px;
+    height: 160px;
     background: linear-gradient(
       to bottom,
       transparent 0%,
+      rgba(248, 239, 229, 0.3) 40%,
+      rgba(248, 239, 229, 0.7) 70%,
       #FAF9F6 100%
     );
     pointer-events: none;
@@ -1672,14 +1674,42 @@ a.service-breath {
   .service-breath {
     text-align: center;
     margin-bottom: var(--space-lg);
+    padding: var(--space-lg);
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.12);
   }
   .service-breath-description {
     text-align: left;
     hyphens: auto;
     -webkit-hyphens: auto;
+    color: rgba(255, 255, 255, 0.80);
   }
   .service-breath:last-child {
     margin-bottom: 0;
+  }
+
+  /* Services section — dark background on mobile */
+  .section-bg-mist {
+    background-color: #5D768B;
+  }
+  .section-bg-mist .section-title {
+    color: #ffffff;
+  }
+  .section-bg-mist .subheading-lg,
+  .section-bg-mist .subheading-sm {
+    color: rgba(255, 255, 255, 0.75);
+  }
+  .service-breath-title {
+    color: #ffffff;
+  }
+  .service-breath-target {
+    color: rgba(255, 255, 255, 0.65);
+  }
+  .target-label {
+    color: rgba(255, 255, 255, 0.65);
+  }
+  .service-breath-number {
+    color: rgba(255, 255, 255, 0.40);
   }
 
   /* 4a: Blog card content — center on mobile, descriptions left */
