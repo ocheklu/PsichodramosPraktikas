@@ -949,9 +949,10 @@ a.service-breath {
   margin-bottom: var(--space-xl);
 }
 
-/* Уменьшенные пропорции карточек в блоке "Kiti tekstai" */
+/* Пропорции карточек в блоке "Kiti tekstai" */
 .related-articles .blog-card-image {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
 }
 
 .related-articles .blog-card-content {
@@ -1314,7 +1315,7 @@ a.service-breath {
 
   /* логотип на мобильных */
   .logo img {
-    height: 32px;
+    height: 64px;
   }
 
   /* Hero */
