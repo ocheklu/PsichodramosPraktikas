@@ -734,6 +734,21 @@ a.service-breath {
     display: none;
 }
 
+/* mobile-br — скрыть на десктопе */
+.mobile-br {
+    display: none;
+}
+
+/* title-break — inline on desktop */
+.title-break {
+    display: inline;
+}
+
+/* title-pipe — inline on desktop */
+.title-pipe {
+    display: inline;
+}
+
 /* Вертикальный (портретный) контейнер для изображений услуг */
 .service-image-portrait {
     width: 70%;
@@ -1326,19 +1341,22 @@ a.service-breath {
   }
 
     .hero-rotating {
-    display: block;  
+    display: block;
+    position: relative;
     margin-top: var(--space-sm);
     margin-left: 0;
     font-size: var(--text-2xl);
-    height: auto;  
+    height: 2em;
 }
 
-.rotate-text {
-    position: relative;  
-    display: block;
-    left: auto;  
-    top: auto;   
-}
+  .rotate-text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(calc(-50% + 8px));
+    text-align: center;
+  }
   
   /* О терапевте */
   .about-section {
@@ -1419,10 +1437,21 @@ a.service-breath {
     padding-bottom: var(--space-2xl);
   }
 
-  /* Hero: rotate-text — скрыть неактивные элементы,
-     иначе занимают место в потоке на мобиле */
-  .rotate-text:not(.active) {
-    display: none;
+  /* Hero: rotate-text — active/exiting opacity transitions on mobile */
+  .rotate-text.active {
+    opacity: 1;
+    transform: translateY(-50%);
+    filter: blur(0);
+  }
+  .rotate-text.exiting {
+    opacity: 0;
+    transform: translateY(calc(-50% - 8px));
+    filter: blur(2px);
+  }
+  .rotate-text:not(.active):not(.exiting) {
+    opacity: 0;
+    transform: translateY(calc(-50% + 8px));
+    filter: blur(2px);
   }
 
   /* Изображения услуг — портрет слишком высокий в 1-колонке */
@@ -1480,6 +1509,43 @@ a.service-breath {
   .blog-card-date {
     display: block;
     text-align: center;
+  }
+
+  /* 1D: Hero title — Inter on mobile */
+  .hero-title {
+    font-family: var(--font-primary);
+    font-weight: 500;
+  }
+
+  /* mobile-br — visible on mobile only */
+  .mobile-br {
+    display: block;
+  }
+
+  /* 2: About section title/subtitle — center on mobile */
+  .about-title {
+    text-align: center;
+  }
+  .about-content .subheading-lg {
+    text-align: center;
+  }
+
+  /* 3: Service card content — center on mobile */
+  .service-breath {
+    text-align: center;
+  }
+
+  /* 4a: Blog card content — center on mobile */
+  .blog-card-content {
+    text-align: center;
+  }
+
+  /* 4b: Blog title pipe — hide on mobile, second part on new line */
+  .title-pipe {
+    display: none;
+  }
+  .title-break {
+    display: block;
   }
 }
 
