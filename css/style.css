@@ -1498,21 +1498,25 @@ a.service-breath {
  .services-breath {
         display: flex;
         flex-direction: column;
-        gap: var(--space-lg);
     }
-    
+
     .service-breath {
         border-right: none;
-        border-bottom: 1px solid var(--color-border);
-        padding: var(--space-xl) var(--space-md);
+        border-bottom: none;
+        display: block;
+        background-color: #ffffff;
+        border-radius: var(--radius-md);
+        padding: var(--space-lg);
+        margin-bottom: var(--space-md);
+        box-shadow: 0 2px 12px rgba(93, 118, 139, 0.10);
     }
 
     .service-breath-number {
         font-size: var(--text-4xl);
     }
-    
+
     .service-breath:last-child {
-        border-bottom: none;
+        margin-bottom: 0;
     }
     
     .service-breath-title {
@@ -1711,10 +1715,9 @@ a.service-breath {
     -webkit-hyphens: auto;
   }
 
-  /* 3: Service card content — center + spacing on mobile */
+  /* 3: Service card content — center on mobile */
   .service-breath {
     text-align: center;
-    padding: var(--space-lg);
   }
   .service-breath-description {
     text-align: left;
