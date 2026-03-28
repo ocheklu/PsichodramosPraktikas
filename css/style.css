@@ -745,8 +745,8 @@ a.service-breath {
 }
 
 /* Логотип: десктоп показывает полный, мобиле — только иконку */
-.logo-desktop { display: inline; }
-.logo-mobile  { display: none; }
+.logo .logo-desktop { display: block; }
+.logo .logo-mobile  { display: none; }
 
 /* title-break — inline on desktop */
 .title-break {
@@ -1338,12 +1338,12 @@ a.service-breath {
   }
 
   /* логотип на мобильных */
-  .logo-desktop { display: none; }
-  .logo-mobile  { display: block; height: 40px; }
+  .logo .logo-desktop { display: none; }
+  .logo .logo-mobile  { display: block; height: 40px; }
 
   /* Hero */
   .hero {
-    min-height: 100svh;
+    min-height: 50vh;
     padding-top: calc(70px + var(--space-xl));
     padding-bottom: var(--space-xl);
   }
@@ -1554,6 +1554,52 @@ a.service-breath {
   /* 4b: Blog title — pipe stays visible, second part on new line */
   .title-break {
     display: block;
+  }
+
+  /* 6: text-wrap: balance — короткие центрированные заголовки и карточки */
+
+  /* Section titles */
+  .section-title {
+    text-wrap: balance;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* About section */
+  .about-title {
+    text-wrap: balance;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .about-content .subheading-lg {
+    text-wrap: balance;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Service cards */
+  .service-breath-title {
+    text-wrap: balance;
+  }
+  .service-breath-description {
+    text-wrap: balance;
+  }
+  .service-breath-target {
+    text-wrap: balance;
+  }
+
+  /* Blog card titles, descriptions, dates */
+  .blog-card-title {
+    text-wrap: balance;
+  }
+  .blog-card-description {
+    text-wrap: balance;
+  }
+  .blog-card-date {
+    text-wrap: balance;
   }
 }
 
