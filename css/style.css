@@ -1456,16 +1456,61 @@ a.service-breath {
         min-height: auto;
     }
   
+  /* ── HERO VARIANTS ── */
+
+  /* 1. Dark hero — index.html */
+  .hero-dark {
+    background-color: #5D768B;
+  }
+  .hero-dark .heading-hero {
+    color: #ffffff;
+    font-size: clamp(2.4rem, 9vw, 3.2rem);
+  }
+  .hero-dark .hero-subtitle,
+  .hero-dark .hero-rotating,
+  .hero-dark .rotate-text {
+    color: rgba(255, 255, 255, 0.75);
+  }
+  .hero-dark::before {
+    opacity: 0.2;
+  }
+
+  /* 2. Article hero — minimal, no background */
+  .hero-article {
+    background-color: transparent;
+    min-height: 0;
+    justify-content: flex-start;
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-md);
+    border-bottom: none;
+  }
+  .hero-article::before {
+    display: none;
+  }
+
+  /* 3. Hide hero on paslaugos / kontaktai / tekstai */
+  .hero-page {
+    display: none;
+  }
+  .hero-page + .section {
+    padding-top: var(--space-xl);
+  }
+
+  /* 4. Hide footer */
+  .footer {
+    display: none;
+  }
+
   /* Блог */
   .blog-grid {
     grid-template-columns: 1fr;
   }
-  
+
   /* Контакты */
   .contact-grid {
     grid-template-columns: 1fr;
   }
-  
+
   /* Footer */
   .footer-container {
     flex-direction: column;
