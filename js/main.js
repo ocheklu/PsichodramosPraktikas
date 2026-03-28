@@ -70,3 +70,23 @@ if (rotateTexts.length > 0) {
     setInterval(rotateText, 4000);
 }
 
+// Custom video play button
+const videoPlayBtn = document.querySelector('.video-play-btn');
+if (videoPlayBtn) {
+    const video = videoPlayBtn.closest('.video-container').querySelector('video');
+
+    videoPlayBtn.addEventListener('click', () => {
+        if (video.paused) {
+            video.play();
+            videoPlayBtn.classList.add('hidden');
+        } else {
+            video.pause();
+            videoPlayBtn.classList.remove('hidden');
+        }
+    });
+
+    video.addEventListener('ended', () => {
+        videoPlayBtn.classList.remove('hidden');
+    });
+}
+

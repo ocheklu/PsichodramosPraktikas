@@ -597,6 +597,40 @@ button {
     background-color: #000;
 }
 
+/* КАСТОМНАЯ КНОПКА ВОСПРОИЗВЕДЕНИЯ */
+.video-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(93, 118, 139, 0.85);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.video-play-btn:hover {
+  background: rgba(93, 118, 139, 1);
+}
+
+.video-play-btn.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Нативные контролы видео — показываем на десктопе */
+video::-webkit-media-controls {
+  display: flex;
+}
+
 /* Для iframe (YouTube/Vimeo) */
 .video-container-16-9 {
   aspect-ratio: 16 / 9;
@@ -1293,6 +1327,11 @@ a.service-breath {
 
 /* Mobile (до 768px) */
 @media (max-width: 768px) {
+  /* Скрываем нативные контролы — используем кастомную кнопку */
+  video::-webkit-media-controls {
+    display: none !important;
+  }
+
   :root {
     --text-6xl: 2.5rem;      /* 40px */
     --text-5xl: 2rem;        /* 32px */
@@ -1389,9 +1428,9 @@ a.service-breath {
     background: linear-gradient(
       to bottom,
       transparent 0%,
-      rgba(248, 239, 229, 0.3) 40%,
-      rgba(248, 239, 229, 0.7) 70%,
-      #FAF9F6 100%
+      rgba(255, 255, 255, 0.3) 40%,
+      rgba(255, 255, 255, 0.7) 70%,
+      #ffffff 100%
     );
     pointer-events: none;
     z-index: 2;
@@ -1675,14 +1714,11 @@ a.service-breath {
     text-align: center;
     margin-bottom: var(--space-lg);
     padding: var(--space-lg);
-    background: rgba(255, 255, 255, 0.07);
-    border-color: rgba(255, 255, 255, 0.12);
   }
   .service-breath-description {
     text-align: left;
     hyphens: auto;
     -webkit-hyphens: auto;
-    color: rgba(255, 255, 255, 0.80);
   }
   .service-breath:last-child {
     margin-bottom: 0;
@@ -1698,18 +1734,6 @@ a.service-breath {
   .section-bg-mist .subheading-lg,
   .section-bg-mist .subheading-sm {
     color: rgba(255, 255, 255, 0.75);
-  }
-  .service-breath-title {
-    color: #ffffff;
-  }
-  .service-breath-target {
-    color: rgba(255, 255, 255, 0.65);
-  }
-  .target-label {
-    color: rgba(255, 255, 255, 0.65);
-  }
-  .service-breath-number {
-    color: rgba(255, 255, 255, 0.40);
   }
 
   /* 4a: Blog card content — center on mobile, descriptions left */
