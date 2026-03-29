@@ -1893,15 +1893,10 @@ a.service-breath {
 
 /* On mobile — service sections hidden by default, shown when .service-active added by JS */
 @media (max-width: 768px) {
-    #meno-terapija,
-    #judejimo-terapija,
-    #individuali-sesija {
+    .service-section-mobile {
         display: none;
     }
-
-    #meno-terapija.service-active,
-    #judejimo-terapija.service-active,
-    #individuali-sesija.service-active {
+    .service-section-mobile.service-active {
         display: block;
     }
 }

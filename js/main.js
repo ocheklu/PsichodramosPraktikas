@@ -71,105 +71,88 @@ if (rotateTexts.length > 0) {
 }
 
 // Services nav strip — dot indicators
-const navStrip = document.querySelector('.services-nav-strip');
-const navCards = document.querySelectorAll('.services-nav-card');
-const navDots = document.querySelectorAll('.services-nav-dot');
+window.addEventListener('DOMContentLoaded', function() {
 
-function isMobile() {
-    return window.innerWidth <= 768;
-}
+    var strip = document.querySelector('.services-nav-strip');
+    if (!strip) return;
 
-function activateService(index) {
-    if (!navCards[index]) return;
-    const targetId = navCards[index].getAttribute('href');
-    const target = document.querySelector(targetId);
+    var cards = strip.querySelectorAll('.services-nav-card');
+    var dots = document.querySelectorAll('.services-nav-dot');
+    var sections = [
+        document.querySelector('#meno-terapija'),
+        document.querySelector('#judejimo-terapija'),
+        document.querySelector('#individuali-sesija')
+    ];
 
-    if (isMobile()) {
-        // Hide all service sections
-        document.querySelectorAll('#meno-terapija, #judejimo-terapija, #individuali-sesija')
-            .forEach(s => s.classList.remove('service-active'));
-
-        // Show selected if target exists
-        if (target) target.classList.add('service-active');
-
-        // Update active card style
-        navCards.forEach(c => c.classList.remove('card-active'));
-        navCards[index].classList.add('card-active');
+    function isMobile() {
+        return window.innerWidth <= 768;
     }
 
-    // Update dots always
-    navDots.forEach(d => d.classList.remove('active'));
-    if (navDots[index]) navDots[index].classList.add('active');
-}
-
-// Click handler — scroll to section on click
-navCards.forEach((card, index) => {
-    card.addEventListener('click', function(e) {
-        e.preventDefault();
-        activateService(index);
-
-        if (isMobile()) {
-            const targetId = this.getAttribute('href');
-            const target = document.querySelector(targetId);
-            if (target) {
-                setTimeout(() => {
-                    const offset = 20;
-                    const top = target.getBoundingClientRect().top + window.scrollY - offset;
-                    window.scrollTo({ top: top, behavior: 'smooth' });
-                }, 50);
-            }
-        }
-    });
-});
-
-// On mobile load — show NO service by default, just dots
-if (isMobile()) {
-    navDots.forEach(d => d.classList.remove('active'));
-    if (navDots[0]) navDots[0].classList.add('active');
-}
-
-// On page load — check if URL has a hash anchor
-// If yes and we are on mobile — activate the corresponding service
-if (isMobile() && window.location.hash) {
-    const hash = window.location.hash;
-    navCards.forEach((card, index) => {
-        if (card.getAttribute('href') === hash) {
-            activateService(index);
-        }
-    });
-}
-
-// Update dots AND active service on scroll
-if (navStrip) {
-    function updateDotsFromScroll() {
-        const stripRect = navStrip.getBoundingClientRect();
-        const stripCenter = stripRect.left + stripRect.width / 2;
-
-        let closestIndex = 0;
-        let closestDistance = Infinity;
-
-        navCards.forEach((card, index) => {
-            const cardRect = card.getBoundingClientRect();
-            const cardCenter = cardRect.left + cardRect.width / 2;
-            const distance = Math.abs(cardCenter - stripCenter);
-
-            if (distance < closestDistance) {
-                closestDistance = distance;
-                closestIndex = index;
-            }
+    function setActive(index) {
+        dots.forEach(function(d, i) {
+            d.classList.toggle('active', i === index);
         });
 
-        navDots.forEach(d => d.classList.remove('active'));
-        if (navDots[closestIndex]) navDots[closestIndex].classList.add('active');
+        cards.forEach(function(c, i) {
+            c.classList.toggle('card-active', i === index);
+        });
 
-        navCards.forEach(c => c.classList.remove('card-active'));
-        navCards[closestIndex].classList.add('card-active');
+        if (isMobile()) {
+            sections.forEach(function(s) {
+                if (s) s.classList.remove('service-active');
+            });
+            if (sections[index]) sections[index].classList.add('service-active');
+        }
     }
 
-    navStrip.addEventListener('scroll', updateDotsFromScroll, { passive: true });
-    navStrip.addEventListener('touchmove', updateDotsFromScroll, { passive: true });
-    navStrip.addEventListener('touchend', updateDotsFromScroll, { passive: true });
-}
+    cards.forEach(function(card, index) {
+        card.addEventListener('click', function(e) {
+            e.preventDefault();
+            setActive(index);
+            if (isMobile() && sections[index]) {
+                setTimeout(function() {
+                    sections[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 50);
+            }
+        });
+    });
+
+    function updateFromScroll() {
+        var stripCenter = strip.scrollLeft + strip.offsetWidth / 2;
+        var closest = 0;
+        var minDist = Infinity;
+        cards.forEach(function(card, i) {
+            var cardCenter = card.offsetLeft + card.offsetWidth / 2;
+            var dist = Math.abs(cardCenter - stripCenter);
+            if (dist < minDist) {
+                minDist = dist;
+                closest = i;
+            }
+        });
+        dots.forEach(function(d, i) {
+            d.classList.toggle('active', i === closest);
+        });
+        cards.forEach(function(c, i) {
+            c.classList.toggle('card-active', i === closest);
+        });
+    }
+
+    strip.addEventListener('scroll', updateFromScroll, { passive: true });
+    strip.addEventListener('touchend', updateFromScroll, { passive: true });
+
+    if (isMobile() && window.location.hash) {
+        var hash = window.location.hash;
+        cards.forEach(function(card, index) {
+            if (card.getAttribute('href') === hash) {
+                setActive(index);
+            }
+        });
+    }
+
+    dots.forEach(function(d, i) {
+        d.classList.toggle('active', i === 0);
+    });
+});
 
 // Custom video play button
 const videoPlayBtn = document.querySelector('.video-play-btn');
