@@ -86,7 +86,7 @@ function activateService(index) {
 
     if (isMobile()) {
         // Hide all service sections
-        document.querySelectorAll('#meno-terapija, #judesio-terapija, #psichodrama')
+        document.querySelectorAll('#meno-terapija, #judejimo-terapija, #individuali-sesija')
             .forEach(s => s.classList.remove('service-active'));
 
         // Show selected if target exists
@@ -141,7 +141,7 @@ if (isMobile() && window.location.hash) {
 
 // Update dots AND active service on scroll
 if (navStrip) {
-    navStrip.addEventListener('scroll', function() {
+    function updateDotsFromScroll() {
         const stripRect = navStrip.getBoundingClientRect();
         const stripCenter = stripRect.left + stripRect.width / 2;
 
@@ -159,15 +159,16 @@ if (navStrip) {
             }
         });
 
-        // Update dots immediately on scroll
         navDots.forEach(d => d.classList.remove('active'));
         if (navDots[closestIndex]) navDots[closestIndex].classList.add('active');
 
-        // Update card-active style
         navCards.forEach(c => c.classList.remove('card-active'));
         navCards[closestIndex].classList.add('card-active');
+    }
 
-    }, { passive: true });
+    navStrip.addEventListener('scroll', updateDotsFromScroll, { passive: true });
+    navStrip.addEventListener('touchmove', updateDotsFromScroll, { passive: true });
+    navStrip.addEventListener('touchend', updateDotsFromScroll, { passive: true });
 }
 
 // Custom video play button
