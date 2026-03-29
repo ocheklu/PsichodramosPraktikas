@@ -1825,7 +1825,8 @@ a.service-breath {
   }
 
   /* subheading-sm — центрировать на мобиле */
-  .subheading-sm {
+  .subheading-sm,
+  .about-content .subheading-sm {
     text-align: center;
   }
 
@@ -1899,10 +1900,9 @@ a.service-breath {
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
-        gap: 12px;
-        padding: var(--space-lg) var(--space-md);
-        padding-right: var(--space-2xl);
         scrollbar-width: none;
+        gap: 0;
+        padding: var(--space-lg) var(--space-md);
     }
 
     .services-nav-strip::-webkit-scrollbar {
@@ -1910,14 +1910,19 @@ a.service-breath {
     }
 
     .services-nav-card {
-        flex: 0 0 72vw;
-        scroll-snap-align: start;
+        flex: 0 0 85vw;
+        scroll-snap-align: center;
         position: relative;
         border-radius: var(--radius-md);
         overflow: hidden;
         text-decoration: none;
-        aspect-ratio: 3 / 4;
+        aspect-ratio: 2 / 3;
         display: block;
+        margin-right: 12px;
+    }
+
+    .services-nav-card:last-child {
+        margin-right: 0;
     }
 
     .services-nav-card img {
@@ -1925,6 +1930,9 @@ a.service-breath {
         height: 100%;
         object-fit: cover;
         display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
     }
 
     .services-nav-card-overlay {
@@ -1932,75 +1940,44 @@ a.service-breath {
         bottom: 0;
         left: 0;
         right: 0;
-        padding: var(--space-lg) var(--space-md) var(--space-md);
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: var(--space-xl) var(--space-lg);
         background: linear-gradient(
             to bottom,
             transparent 0%,
-            rgba(30, 45, 60, 0.4) 40%,
-            rgba(30, 45, 60, 0.85) 100%
+            transparent 35%,
+            rgba(20, 35, 50, 0.45) 60%,
+            rgba(20, 35, 50, 0.88) 100%
         );
     }
 
     .services-nav-card-label {
-        font-size: var(--text-xs);
-        color: rgba(255, 255, 255, 0.70);
-        letter-spacing: 0.08em;
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.65);
+        letter-spacing: 0.10em;
         text-transform: uppercase;
-        margin-bottom: 4px;
+        margin-bottom: 6px;
     }
 
     .services-nav-card-title {
-        font-size: var(--text-lg);
+        font-size: var(--text-2xl);
         font-family: var(--font-heading);
         color: #ffffff;
         font-weight: 400;
+        margin: 0 0 8px 0;
+        line-height: 1.2;
+    }
+
+    .services-nav-card-desc {
+        font-size: var(--text-sm);
+        color: rgba(255, 255, 255, 0.80);
+        line-height: 1.5;
         margin: 0;
     }
 
-    /* Service 2 — Judesio terapija — dark background */
-    #judejimo-terapija {
-        background-color: #5D768B;
-    }
-
-    #judejimo-terapija .heading-2,
-    #judejimo-terapija .heading-5 {
-        color: #ffffff;
-    }
-
-    #judejimo-terapija .subheading-sm {
-        color: rgba(255, 255, 255, 0.65);
-    }
-
-    #judejimo-terapija .text-body,
-    #judejimo-terapija .about-description p {
-        color: rgba(255, 255, 255, 0.85);
-    }
-
-    #judejimo-terapija .service-steps-list li {
-        color: rgba(255, 255, 255, 0.85);
-    }
-
-    #judejimo-terapija .service-audience-list li {
-        color: rgba(255, 255, 255, 0.85);
-    }
-
-    #judejimo-terapija .service-audience-list li::before {
-        color: rgba(255, 255, 255, 0.50);
-    }
-
-    #judejimo-terapija .service-audience-list--group {
-        border-top-color: rgba(255, 255, 255, 0.20);
-    }
-
-    #judejimo-terapija .text-light em {
-        color: rgba(255, 255, 255, 0.60);
-    }
-
-    #judejimo-terapija .btn-primary {
-        background: #ffffff;
-        color: #5D768B;
-        border-color: #ffffff;
-    }
 }
 
 /* ============================================
