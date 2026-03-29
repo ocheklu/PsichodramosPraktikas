@@ -1899,10 +1899,13 @@ a.service-breath {
         display: flex;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
+        scroll-padding-left: var(--space-md);
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         gap: 0;
         padding: var(--space-lg) var(--space-md);
+        padding-bottom: var(--space-lg);
+        margin-top: var(--space-xl);
     }
 
     .services-nav-strip::-webkit-scrollbar {
@@ -1911,7 +1914,8 @@ a.service-breath {
 
     .services-nav-card {
         flex: 0 0 85vw;
-        scroll-snap-align: center;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
         position: relative;
         border-radius: var(--radius-md);
         overflow: hidden;
