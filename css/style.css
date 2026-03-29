@@ -1890,6 +1890,12 @@ a.service-breath {
 /* ============================================
    SERVICES NAV STRIP — mobile swipe cards
    ============================================ */
+/* Hidden on desktop — overridden inside @media below */
+.services-nav-strip,
+.services-nav-dots {
+    display: none;
+}
+
 .services-nav-strip {
     display: none;
 }
@@ -2002,11 +2008,6 @@ a.service-breath {
         border-radius: 3px;
         background-color: #5D768B;
     }
-}
-
-/* Dots hidden on desktop */
-.services-nav-dots {
-    display: none;
 }
 
 /* ============================================
