@@ -1498,17 +1498,20 @@ a.service-breath {
  .services-breath {
         display: flex;
         flex-direction: column;
+        background-color: #5D768B;
+        border-radius: var(--radius-md);
+        overflow: hidden;
     }
 
     .service-breath {
         border-right: none;
-        border-bottom: none;
         display: block;
         background-color: #ffffff;
-        border-radius: var(--radius-md);
+        border-radius: 0;
         padding: var(--space-lg);
-        margin-bottom: var(--space-md);
-        box-shadow: 0 2px 12px rgba(93, 118, 139, 0.10);
+        margin-bottom: 0;
+        box-shadow: none;
+        border-bottom: 1px solid rgba(93, 118, 139, 0.25);
     }
 
     .service-breath-number {
@@ -1516,7 +1519,7 @@ a.service-breath {
     }
 
     .service-breath:last-child {
-        margin-bottom: 0;
+        border-bottom: none;
     }
     
     .service-breath-title {
