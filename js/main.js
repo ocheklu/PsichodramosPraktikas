@@ -71,24 +71,25 @@ if (rotateTexts.length > 0) {
 }
 
 // Services nav strip — dot indicators
+const navStrip = document.querySelector('.services-nav-strip');
 const navCards = document.querySelectorAll('.services-nav-card');
 const navDots = document.querySelectorAll('.services-nav-dot');
 
-if (navCards.length && navDots.length) {
-    const stripObserver = new IntersectionObserver((entries) => {
+if (navStrip && navCards.length && navDots.length) {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+            if (entry.isIntersecting) {
                 const index = Array.from(navCards).indexOf(entry.target);
                 navDots.forEach(d => d.classList.remove('active'));
                 if (navDots[index]) navDots[index].classList.add('active');
             }
         });
     }, {
-        root: document.querySelector('.services-nav-strip'),
-        threshold: 0.5
+        root: navStrip,
+        threshold: 0.6
     });
 
-    navCards.forEach(card => stripObserver.observe(card));
+    navCards.forEach(card => observer.observe(card));
 
     navCards.forEach(card => {
         card.addEventListener('click', function(e) {
