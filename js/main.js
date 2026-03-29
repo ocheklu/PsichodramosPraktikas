@@ -70,23 +70,10 @@ if (rotateTexts.length > 0) {
     setInterval(rotateText, 4000);
 }
 
-// Services nav strip — debug helper
-function debug(msg) {
-    var panel = document.getElementById('debug-panel');
-    var text = document.getElementById('debug-text');
-    if (panel && text) {
-        panel.style.display = 'block';
-        text.innerHTML = msg + '<br>' + text.innerHTML;
-    }
-}
-
 // Services nav strip — dot indicators
 window.addEventListener('DOMContentLoaded', function() {
 
     var strip = document.querySelector('.services-nav-strip');
-    console.log('DOM ready');
-    console.log('strip:', strip);
-    debug('strip found: ' + (strip ? 'YES' : 'NO'));
     if (!strip) return;
 
     var cards = strip.querySelectorAll('.services-nav-card');
@@ -97,20 +84,11 @@ window.addEventListener('DOMContentLoaded', function() {
         document.querySelector('#individuali-sesija')
     ];
 
-    console.log('cards count:', cards.length);
-    console.log('dots count:', dots.length);
-    console.log('sections:', sections);
-    debug('cards: ' + cards.length + ' dots: ' + dots.length);
-    debug('sections: ' + sections.map(function(s){ return s ? s.id : 'NULL'; }).join(', '));
-
     function isMobile() {
         return window.innerWidth <= 768;
     }
 
     function setActive(index) {
-        console.log('setActive called with index:', index);
-        console.log('isMobile:', isMobile());
-        debug('setActive: ' + index + ' mobile: ' + isMobile());
         dots.forEach(function(d, i) {
             d.classList.toggle('active', i === index);
         });
@@ -130,8 +108,6 @@ window.addEventListener('DOMContentLoaded', function() {
     cards.forEach(function(card, index) {
         card.addEventListener('click', function(e) {
             e.preventDefault();
-            console.log('card clicked, index:', index);
-            debug('CLICK index: ' + index);
             setActive(index);
             if (isMobile() && sections[index]) {
                 setTimeout(function() {
@@ -142,8 +118,6 @@ window.addEventListener('DOMContentLoaded', function() {
     });
 
     function updateFromScroll() {
-        console.log('scroll fired, stripScrollLeft:', strip.scrollLeft);
-        debug('SCROLL: ' + strip.scrollLeft);
         var stripCenter = strip.scrollLeft + strip.offsetWidth / 2;
         var closest = 0;
         var minDist = Infinity;
@@ -166,18 +140,22 @@ window.addEventListener('DOMContentLoaded', function() {
     strip.addEventListener('scroll', updateFromScroll, { passive: true });
     strip.addEventListener('touchend', updateFromScroll, { passive: true });
 
+    var hashMatched = false;
     if (isMobile() && window.location.hash) {
         var hash = window.location.hash;
         cards.forEach(function(card, index) {
             if (card.getAttribute('href') === hash) {
                 setActive(index);
+                hashMatched = true;
             }
         });
     }
 
-    dots.forEach(function(d, i) {
-        d.classList.toggle('active', i === 0);
-    });
+    if (!hashMatched) {
+        dots.forEach(function(d, i) {
+            d.classList.toggle('active', i === 0);
+        });
+    }
 });
 
 // Custom video play button
