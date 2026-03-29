@@ -2136,3 +2136,110 @@ a.service-breath {
     padding: 0;
   }
 }
+
+/* ============================================
+   18. KONTAKTAI PAGE — MOBILE
+   ============================================ */
+
+.contact-buttons-mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    body.page-kontaktai {
+        background-color: #5D768B;
+    }
+
+    body.page-kontaktai .hero-page {
+        display: none;
+    }
+
+    body.page-kontaktai .contact-info {
+        display: none;
+    }
+
+    .contact-buttons-mobile {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+        padding: var(--space-xl) var(--space-md) var(--space-lg);
+    }
+
+    .contact-btn-mobile {
+        display: flex;
+        align-items: center;
+        gap: var(--space-md);
+        padding: var(--space-md) var(--space-lg);
+        background-color: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.20);
+        border-radius: var(--radius-sm);
+        color: #ffffff;
+        text-decoration: none;
+        font-size: var(--text-sm);
+        transition: background-color 0.2s ease;
+    }
+
+    .contact-btn-mobile:hover,
+    .contact-btn-mobile:active {
+        background-color: rgba(255, 255, 255, 0.22);
+    }
+
+    .contact-btn-mobile svg {
+        flex-shrink: 0;
+        opacity: 0.85;
+    }
+
+    .contact-btn-mobile span {
+        color: rgba(255, 255, 255, 0.90);
+    }
+
+    body.page-kontaktai .contact-form {
+        background: rgba(255, 255, 255, 0.10);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: var(--radius-md);
+        padding: var(--space-xl) var(--space-md);
+        margin: 0 var(--space-md) var(--space-xl);
+    }
+
+    body.page-kontaktai .contact-form .form-label {
+        color: rgba(255, 255, 255, 0.85);
+    }
+
+    body.page-kontaktai .contact-form .form-input,
+    body.page-kontaktai .contact-form .form-textarea,
+    body.page-kontaktai .contact-form .form-select {
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        color: #ffffff;
+        border-radius: var(--radius-sm);
+    }
+
+    body.page-kontaktai .contact-form .form-input::placeholder,
+    body.page-kontaktai .contact-form .form-textarea::placeholder {
+        color: rgba(255, 255, 255, 0.45);
+    }
+
+    body.page-kontaktai .contact-form .form-select option {
+        background-color: #5D768B;
+        color: #ffffff;
+    }
+
+    body.page-kontaktai .contact-form .btn-primary {
+        width: 100%;
+        background-color: #ffffff;
+        color: #5D768B;
+        border-color: #ffffff;
+    }
+
+    body.page-kontaktai .contact-form .btn-primary:hover,
+    body.page-kontaktai .contact-form .btn-primary:active {
+        background-color: rgba(255, 255, 255, 0.88);
+    }
+
+    .section:has(.contact-grid) {
+        background-color: transparent;
+        padding-top: 0;
+    }
+}
