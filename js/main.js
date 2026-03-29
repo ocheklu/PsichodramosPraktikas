@@ -75,8 +75,73 @@ const navStrip = document.querySelector('.services-nav-strip');
 const navCards = document.querySelectorAll('.services-nav-card');
 const navDots = document.querySelectorAll('.services-nav-dot');
 
-if (navStrip && navCards.length && navDots.length) {
-    function updateDots() {
+function isMobile() {
+    return window.innerWidth <= 768;
+}
+
+function activateService(index) {
+    if (!navCards[index]) return;
+    const targetId = navCards[index].getAttribute('href');
+    const target = document.querySelector(targetId);
+
+    if (isMobile()) {
+        // Hide all service sections
+        document.querySelectorAll('#meno-terapija, #judesio-terapija, #psichodrama')
+            .forEach(s => s.classList.remove('service-active'));
+
+        // Show selected if target exists
+        if (target) target.classList.add('service-active');
+
+        // Update active card style
+        navCards.forEach(c => c.classList.remove('card-active'));
+        navCards[index].classList.add('card-active');
+    }
+
+    // Update dots always
+    navDots.forEach(d => d.classList.remove('active'));
+    if (navDots[index]) navDots[index].classList.add('active');
+}
+
+// Click handler — scroll to section on click
+navCards.forEach((card, index) => {
+    card.addEventListener('click', function(e) {
+        e.preventDefault();
+        activateService(index);
+
+        if (isMobile()) {
+            const targetId = this.getAttribute('href');
+            const target = document.querySelector(targetId);
+            if (target) {
+                setTimeout(() => {
+                    const offset = 20;
+                    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top: top, behavior: 'smooth' });
+                }, 50);
+            }
+        }
+    });
+});
+
+// On mobile load — show NO service by default, just dots
+if (isMobile()) {
+    navDots.forEach(d => d.classList.remove('active'));
+    if (navDots[0]) navDots[0].classList.add('active');
+}
+
+// On page load — check if URL has a hash anchor
+// If yes and we are on mobile — activate the corresponding service
+if (isMobile() && window.location.hash) {
+    const hash = window.location.hash;
+    navCards.forEach((card, index) => {
+        if (card.getAttribute('href') === hash) {
+            activateService(index);
+        }
+    });
+}
+
+// Update dots AND active service on scroll
+if (navStrip) {
+    navStrip.addEventListener('scroll', function() {
         const stripRect = navStrip.getBoundingClientRect();
         const stripCenter = stripRect.left + stripRect.width / 2;
 
@@ -94,25 +159,15 @@ if (navStrip && navCards.length && navDots.length) {
             }
         });
 
+        // Update dots immediately on scroll
         navDots.forEach(d => d.classList.remove('active'));
         if (navDots[closestIndex]) navDots[closestIndex].classList.add('active');
-    }
 
-    navStrip.addEventListener('scroll', updateDots, { passive: true });
-    updateDots();
+        // Update card-active style
+        navCards.forEach(c => c.classList.remove('card-active'));
+        navCards[closestIndex].classList.add('card-active');
 
-    navCards.forEach(card => {
-        card.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const target = document.querySelector(targetId);
-            if (target) {
-                const offset = 20;
-                const top = target.getBoundingClientRect().top + window.scrollY - offset;
-                window.scrollTo({ top: top, behavior: 'smooth' });
-            }
-        });
-    });
+    }, { passive: true });
 }
 
 // Custom video play button
