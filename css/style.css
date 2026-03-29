@@ -1905,7 +1905,7 @@ a.service-breath {
         gap: 0;
         padding: var(--space-lg) var(--space-md);
         padding-bottom: var(--space-lg);
-        margin-top: var(--space-xl);
+        margin-top: var(--space-2xl);
     }
 
     .services-nav-strip::-webkit-scrollbar {
@@ -1917,7 +1917,7 @@ a.service-breath {
         scroll-snap-align: start;
         scroll-snap-stop: always;
         position: relative;
-        border-radius: var(--radius-md);
+        border-radius: 0;
         overflow: hidden;
         text-decoration: none;
         aspect-ratio: 2 / 3;
