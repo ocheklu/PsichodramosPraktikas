@@ -1982,6 +1982,31 @@ a.service-breath {
         margin: 0;
     }
 
+    .services-nav-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        padding: var(--space-sm) 0 var(--space-md);
+    }
+
+    .services-nav-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: rgba(93, 118, 139, 0.25);
+        transition: all 0.3s ease;
+    }
+
+    .services-nav-dot.active {
+        width: 18px;
+        border-radius: 3px;
+        background-color: #5D768B;
+    }
+}
+
+/* Dots hidden on desktop */
+.services-nav-dots {
+    display: none;
 }
 
 /* ============================================

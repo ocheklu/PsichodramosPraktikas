@@ -70,6 +70,40 @@ if (rotateTexts.length > 0) {
     setInterval(rotateText, 4000);
 }
 
+// Services nav strip — dot indicators
+const navCards = document.querySelectorAll('.services-nav-card');
+const navDots = document.querySelectorAll('.services-nav-dot');
+
+if (navCards.length && navDots.length) {
+    const stripObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+                const index = Array.from(navCards).indexOf(entry.target);
+                navDots.forEach(d => d.classList.remove('active'));
+                if (navDots[index]) navDots[index].classList.add('active');
+            }
+        });
+    }, {
+        root: document.querySelector('.services-nav-strip'),
+        threshold: 0.5
+    });
+
+    navCards.forEach(card => stripObserver.observe(card));
+
+    navCards.forEach(card => {
+        card.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const target = document.querySelector(targetId);
+            if (target) {
+                const offset = 20;
+                const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({ top: top, behavior: 'smooth' });
+            }
+        });
+    });
+}
+
 // Custom video play button
 const videoPlayBtn = document.querySelector('.video-play-btn');
 if (videoPlayBtn) {
