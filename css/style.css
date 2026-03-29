@@ -2145,9 +2145,13 @@ a.service-breath {
     display: none;
 }
 
+.form-toggle-btn {
+    display: none;
+}
+
 @media (max-width: 768px) {
     body.page-kontaktai {
-        background-color: #5D768B;
+        background-color: #ffffff;
     }
 
     body.page-kontaktai .hero-page {
@@ -2156,6 +2160,11 @@ a.service-breath {
 
     body.page-kontaktai .contact-info {
         display: none;
+    }
+
+    /* Fix: second grid cell takes full width */
+    body.page-kontaktai .contact-grid {
+        display: block;
     }
 
     .contact-buttons-mobile {
@@ -2170,72 +2179,72 @@ a.service-breath {
         align-items: center;
         gap: var(--space-md);
         padding: var(--space-md) var(--space-lg);
-        background-color: rgba(255, 255, 255, 0.12);
-        border: 1px solid rgba(255, 255, 255, 0.20);
-        border-radius: var(--radius-sm);
-        color: #ffffff;
+        background-color: #f0f4f7;
+        border: 1px solid rgba(93, 118, 139, 0.15);
+        border-radius: 50px;
+        color: #5D768B;
         text-decoration: none;
         font-size: var(--text-sm);
         transition: background-color 0.2s ease;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .contact-btn-mobile:hover,
     .contact-btn-mobile:active {
-        background-color: rgba(255, 255, 255, 0.22);
+        background-color: #e2eaef;
     }
 
     .contact-btn-mobile svg {
         flex-shrink: 0;
+        color: #5D768B;
         opacity: 0.85;
     }
 
     .contact-btn-mobile span {
-        color: rgba(255, 255, 255, 0.90);
+        color: #5D768B;
     }
 
-    body.page-kontaktai .contact-form {
-        background: rgba(255, 255, 255, 0.10);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        border-radius: var(--radius-md);
-        padding: var(--space-xl) var(--space-md);
-        margin: 0 var(--space-md) var(--space-xl);
-    }
-
-    body.page-kontaktai .contact-form .form-label {
-        color: rgba(255, 255, 255, 0.85);
-    }
-
-    body.page-kontaktai .contact-form .form-input,
-    body.page-kontaktai .contact-form .form-textarea,
-    body.page-kontaktai .contact-form .form-select {
-        background: rgba(255, 255, 255, 0.12);
-        border: 1px solid rgba(255, 255, 255, 0.25);
-        color: #ffffff;
-        border-radius: var(--radius-sm);
-    }
-
-    body.page-kontaktai .contact-form .form-input::placeholder,
-    body.page-kontaktai .contact-form .form-textarea::placeholder {
-        color: rgba(255, 255, 255, 0.45);
-    }
-
-    body.page-kontaktai .contact-form .form-select option {
+    .form-toggle-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-sm);
+        width: 100%;
+        padding: var(--space-md) var(--space-lg);
         background-color: #5D768B;
         color: #ffffff;
+        border: none;
+        border-radius: 50px;
+        font-size: var(--text-base);
+        font-family: var(--font-primary);
+        cursor: pointer;
+        margin: var(--space-md) 0;
+        transition: background-color 0.2s ease;
+        box-sizing: border-box;
     }
 
-    body.page-kontaktai .contact-form .btn-primary {
-        width: 100%;
-        background-color: #ffffff;
-        color: #5D768B;
-        border-color: #ffffff;
+    .form-toggle-btn:hover,
+    .form-toggle-btn:active {
+        background-color: #4A6278;
     }
 
-    body.page-kontaktai .contact-form .btn-primary:hover,
-    body.page-kontaktai .contact-form .btn-primary:active {
-        background-color: rgba(255, 255, 255, 0.88);
+    .contact-form-wrapper {
+        display: none;
+        margin-top: var(--space-md);
+    }
+
+    .contact-form-wrapper.form-open {
+        display: block;
+    }
+
+    .contact-form {
+        background: rgba(93, 118, 139, 0.06);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(93, 118, 139, 0.15);
+        border-radius: var(--radius-md);
+        padding: var(--space-xl) var(--space-md);
     }
 
     .section:has(.contact-grid) {
