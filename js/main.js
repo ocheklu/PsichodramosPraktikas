@@ -76,20 +76,30 @@ const navCards = document.querySelectorAll('.services-nav-card');
 const navDots = document.querySelectorAll('.services-nav-dot');
 
 if (navStrip && navCards.length && navDots.length) {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const index = Array.from(navCards).indexOf(entry.target);
-                navDots.forEach(d => d.classList.remove('active'));
-                if (navDots[index]) navDots[index].classList.add('active');
+    function updateDots() {
+        const stripRect = navStrip.getBoundingClientRect();
+        const stripCenter = stripRect.left + stripRect.width / 2;
+
+        let closestIndex = 0;
+        let closestDistance = Infinity;
+
+        navCards.forEach((card, index) => {
+            const cardRect = card.getBoundingClientRect();
+            const cardCenter = cardRect.left + cardRect.width / 2;
+            const distance = Math.abs(cardCenter - stripCenter);
+
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestIndex = index;
             }
         });
-    }, {
-        root: navStrip,
-        threshold: 0.6
-    });
 
-    navCards.forEach(card => observer.observe(card));
+        navDots.forEach(d => d.classList.remove('active'));
+        if (navDots[closestIndex]) navDots[closestIndex].classList.add('active');
+    }
+
+    navStrip.addEventListener('scroll', updateDots, { passive: true });
+    updateDots();
 
     navCards.forEach(card => {
         card.addEventListener('click', function(e) {
