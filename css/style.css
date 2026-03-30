@@ -2202,6 +2202,10 @@ a.service-breath {
         font-size: var(--text-sm);
         color: var(--color-text-light);
         letter-spacing: 0.03em;
+        margin-bottom: 2px;
+    }
+
+    .kontaktai-subtitle:last-of-type {
         margin-bottom: var(--space-2xl);
     }
 
@@ -2283,6 +2287,18 @@ a.service-breath {
     }
 
     /* Message button */
+    @keyframes kontaktai-pulse {
+        0% {
+            box-shadow: 0 0 0 0 rgba(93, 118, 139, 0.35);
+        }
+        70% {
+            box-shadow: 0 0 0 8px rgba(93, 118, 139, 0);
+        }
+        100% {
+            box-shadow: 0 0 0 0 rgba(93, 118, 139, 0);
+        }
+    }
+
     .kontaktai-message-btn {
         width: 100%;
         max-width: 280px;
@@ -2296,10 +2312,12 @@ a.service-breath {
         cursor: pointer;
         transition: background-color 0.2s ease;
         letter-spacing: 0.02em;
+        animation: kontaktai-pulse 2.5s ease-out infinite;
     }
 
     .kontaktai-message-btn:active {
         background-color: #4A6278;
+        animation: none;
     }
 
     /* Modal overlay */
@@ -2487,9 +2505,10 @@ a.service-breath {
         padding: var(--space-xl) var(--space-lg);
         background: linear-gradient(
             to bottom,
-            rgba(20, 35, 50, 0.15) 0%,
-            rgba(20, 35, 50, 0.45) 40%,
-            rgba(20, 35, 50, 0.92) 100%
+            transparent 0%,
+            transparent 60%,
+            rgba(20, 35, 50, 0.60) 80%,
+            rgba(20, 35, 50, 0.95) 100%
         );
     }
 
