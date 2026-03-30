@@ -157,34 +157,36 @@ window.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // TEKSTAI swipe strip
+});
+
+// TEKSTAI swipe strip
+window.addEventListener('DOMContentLoaded', function() {
     var tekstaiStrip = document.querySelector('.tekstai-nav-strip');
     var tekstaiCards = document.querySelectorAll('.tekstai-nav-card');
     var tekstaiDots = document.querySelectorAll('.tekstai-nav-dot');
 
-    if (tekstaiStrip && tekstaiCards.length && tekstaiDots.length) {
+    if (!tekstaiStrip || !tekstaiCards.length || !tekstaiDots.length) return;
 
-        function updateTekstaiDots() {
-            var stripCenter = tekstaiStrip.scrollLeft + tekstaiStrip.offsetWidth / 2;
-            var closest = 0;
-            var minDist = Infinity;
-            tekstaiCards.forEach(function(card, i) {
-                var cardCenter = card.offsetLeft + card.offsetWidth / 2;
-                var dist = Math.abs(cardCenter - stripCenter);
-                if (dist < minDist) {
-                    minDist = dist;
-                    closest = i;
-                }
-            });
-            tekstaiDots.forEach(function(d, i) {
-                d.classList.toggle('active', i === closest);
-            });
-        }
-
-        tekstaiStrip.addEventListener('scroll', updateTekstaiDots, { passive: true });
-        tekstaiStrip.addEventListener('touchend', updateTekstaiDots, { passive: true });
-        updateTekstaiDots();
+    function updateTekstaiDots() {
+        var stripCenter = tekstaiStrip.scrollLeft + tekstaiStrip.offsetWidth / 2;
+        var closest = 0;
+        var minDist = Infinity;
+        tekstaiCards.forEach(function(card, i) {
+            var cardCenter = card.offsetLeft + card.offsetWidth / 2;
+            var dist = Math.abs(cardCenter - stripCenter);
+            if (dist < minDist) {
+                minDist = dist;
+                closest = i;
+            }
+        });
+        tekstaiDots.forEach(function(d, i) {
+            d.classList.toggle('active', i === closest);
+        });
     }
+
+    tekstaiStrip.addEventListener('scroll', updateTekstaiDots, { passive: true });
+    tekstaiStrip.addEventListener('touchend', updateTekstaiDots, { passive: true });
+    updateTekstaiDots();
 });
 
 // Custom video play button
