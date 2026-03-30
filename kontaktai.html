@@ -124,6 +124,73 @@
     
     <!-- CONTACT SECTION -->
     <section class="section">
+
+        <div class="kontaktai-profile">
+
+            <!-- Photo -->
+            <div class="kontaktai-avatar">
+                <img src="images/contacts/oleg.jpg" alt="Oleg Čeklu" loading="lazy">
+            </div>
+
+            <!-- Name -->
+            <h1 class="kontaktai-name">Oleg Čeklu</h1>
+            <p class="kontaktai-subtitle">Psichodramos praktikas · Vilnius</p>
+
+            <!-- Contact buttons -->
+            <div class="kontaktai-buttons">
+
+                <!-- Email -->
+                <div class="kontaktai-btn-wrap">
+                    <button class="kontaktai-btn" id="btnEmail" aria-label="El. paštas">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="16" x="2" y="4" rx="2"/>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                        </svg>
+                    </button>
+                    <div class="kontaktai-popup" id="popupEmail">
+                        <a href="mailto:psichodramospraktikas@gmail.com" class="kontaktai-popup-item">Atidaryti paštą</a>
+                        <button class="kontaktai-popup-item" data-copy="psichodramospraktikas@gmail.com">Kopijuoti</button>
+                    </div>
+                </div>
+
+                <!-- Phone -->
+                <div class="kontaktai-btn-wrap">
+                    <button class="kontaktai-btn" id="btnPhone" aria-label="Telefonas">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 5.29 5.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z"/>
+                        </svg>
+                    </button>
+                    <div class="kontaktai-popup" id="popupPhone">
+                        <a href="tel:+37067168072" class="kontaktai-popup-item">Skambinti</a>
+                        <a href="https://wa.me/37067168072" target="_blank" rel="noopener noreferrer" class="kontaktai-popup-item">WhatsApp</a>
+                        <button class="kontaktai-popup-item" data-copy="+37067168072">Kopijuoti</button>
+                    </div>
+                </div>
+
+                <!-- Instagram -->
+                <div class="kontaktai-btn-wrap">
+                    <button class="kontaktai-btn" id="btnInstagram" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                        </svg>
+                    </button>
+                    <div class="kontaktai-popup" id="popupInstagram">
+                        <a href="https://www.instagram.com/psichodramospraktikas" target="_blank" rel="noopener noreferrer" class="kontaktai-popup-item">Atidaryti</a>
+                        <button class="kontaktai-popup-item" data-copy="@psichodramospraktikas">Kopijuoti</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Message button -->
+            <button class="kontaktai-message-btn" id="openModalBtn">
+                Parašyti žinutę
+            </button>
+
+        </div>
+
         <div class="container">
             <div class="contact-grid">
                 
@@ -467,5 +534,230 @@
             <span>Kontaktai</span>
         </a>
     </nav>
+
+    <div class="kontaktai-modal-overlay" id="modalOverlay">
+        <div class="kontaktai-modal">
+
+            <button class="kontaktai-modal-close" id="modalClose">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+                </svg>
+            </button>
+
+            <form id="modalForm" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="22a6c7fc-3418-4fb9-8fa1-4f3d490a8cdd">
+                <input type="hidden" name="subject" value="Nauja užklausa iš psichodramospraktikas.lt">
+                <input type="hidden" name="from_name" value="Psichodramospraktikas.lt">
+                <input type="checkbox" name="botcheck" class="honeypot">
+
+                <!-- Name -->
+                <div class="modal-form-group">
+                    <input type="text" name="name" class="modal-input" placeholder="Vardas *" required>
+                </div>
+
+                <!-- Email -->
+                <div class="modal-form-group">
+                    <input type="email" name="email" class="modal-input" placeholder="El. paštas *" required>
+                </div>
+
+                <!-- Phone -->
+                <div class="modal-form-group">
+                    <input type="tel" name="phone" class="modal-input" placeholder="Telefonas">
+                </div>
+
+                <!-- Subject -->
+                <div class="modal-form-group">
+                    <select name="message_subject" class="modal-input modal-select" id="modalSubject" required>
+                        <option value="">Pasirinkite temą</option>
+                        <option value="Individuali sesija">Individuali sesija</option>
+                        <option value="Judesio terapija">Judesio terapija</option>
+                        <option value="Meno terapija">Meno terapija</option>
+                        <option value="Klausimas">Klausimas</option>
+                    </select>
+                </div>
+
+                <!-- Date selection — shown conditionally -->
+                <div class="modal-form-group" id="dateGroupIndividuali" style="display:none;">
+                    <select name="date_individuali" class="modal-input modal-select">
+                        <option value="">Pasirinkite datą</option>
+                        <option value="Balandžio 14 d. 14:00">Balandžio 14 d. 14:00</option>
+                        <option value="Balandžio 21 d. 14:00">Balandžio 21 d. 14:00</option>
+                        <option value="Balandžio 28 d. 14:00">Balandžio 28 d. 14:00</option>
+                    </select>
+                </div>
+
+                <div class="modal-form-group" id="dateGroupJudesio" style="display:none;">
+                    <select name="date_judesio" class="modal-input modal-select">
+                        <option value="">Pasirinkite datą</option>
+                        <option value="Gegužės 14 dieną 18:00">Gegužės 14 dieną 18:00</option>
+                    </select>
+                </div>
+
+                <div class="modal-form-group" id="dateGroupMeno" style="display:none;">
+                    <select name="date_meno" class="modal-input modal-select">
+                        <option value="">Pasirinkite datą</option>
+                        <option value="Gegužės 24 dieną 14:00">Gegužės 24 dieną 14:00</option>
+                    </select>
+                </div>
+
+                <!-- Message -->
+                <div class="modal-form-group">
+                    <textarea name="message" class="modal-input modal-textarea" placeholder="Žinutė" rows="3"></textarea>
+                </div>
+
+                <button type="submit" class="modal-submit-btn">Siųsti</button>
+
+                <div class="modal-form-message" id="modalFormMessage" style="display:none;"></div>
+            </form>
+
+        </div>
+    </div>
+
+    <script>
+    (function() {
+
+        // --- POPUP LOGIC ---
+        var popups = {
+            btnEmail: 'popupEmail',
+            btnPhone: 'popupPhone',
+            btnInstagram: 'popupInstagram'
+        };
+
+        Object.keys(popups).forEach(function(btnId) {
+            var btn = document.getElementById(btnId);
+            var popup = document.getElementById(popups[btnId]);
+            if (!btn || !popup) return;
+
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                document.querySelectorAll('.kontaktai-popup').forEach(function(p) {
+                    if (p !== popup) p.classList.remove('open');
+                });
+                popup.classList.toggle('open');
+            });
+        });
+
+        document.addEventListener('click', function() {
+            document.querySelectorAll('.kontaktai-popup').forEach(function(p) {
+                p.classList.remove('open');
+            });
+        });
+
+        document.querySelectorAll('[data-copy]').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var text = this.getAttribute('data-copy');
+                navigator.clipboard.writeText(text).then(function() {
+                    btn.textContent = 'Nukopijuota ✓';
+                    setTimeout(function() {
+                        btn.textContent = 'Kopijuoti';
+                    }, 2000);
+                });
+            });
+        });
+
+        // --- MODAL LOGIC ---
+        var overlay = document.getElementById('modalOverlay');
+        var openBtn = document.getElementById('openModalBtn');
+        var closeBtn = document.getElementById('modalClose');
+
+        if (openBtn && overlay) {
+            openBtn.addEventListener('click', function() {
+                overlay.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            });
+        }
+
+        function closeModal() {
+            if (overlay) {
+                overlay.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+        }
+
+        if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+        if (overlay) {
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) closeModal();
+            });
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // --- DATE SELECTION LOGIC ---
+        var subjectSelect = document.getElementById('modalSubject');
+        var dateGroups = {
+            'Individuali sesija': 'dateGroupIndividuali',
+            'Judesio terapija': 'dateGroupJudesio',
+            'Meno terapija': 'dateGroupMeno'
+        };
+
+        if (subjectSelect) {
+            subjectSelect.addEventListener('change', function() {
+                Object.values(dateGroups).forEach(function(id) {
+                    var el = document.getElementById(id);
+                    if (el) el.style.display = 'none';
+                });
+                var selected = this.value;
+                if (dateGroups[selected]) {
+                    var el = document.getElementById(dateGroups[selected]);
+                    if (el) el.style.display = 'block';
+                }
+            });
+        }
+
+        // --- MODAL FORM SUBMISSION ---
+        var modalForm = document.getElementById('modalForm');
+        var modalMessage = document.getElementById('modalFormMessage');
+
+        if (modalForm) {
+            modalForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                var submitBtn = modalForm.querySelector('.modal-submit-btn');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Siunčiama...';
+
+                var formData = new FormData(modalForm);
+
+                try {
+                    var response = await fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    var data = await response.json();
+
+                    if (data.success) {
+                        modalMessage.style.display = 'block';
+                        modalMessage.style.backgroundColor = '#e8f0eb';
+                        modalMessage.style.color = '#3a5c40';
+                        modalMessage.textContent = 'Ačiū! Atsakysiu per 24 valandas.';
+                        modalForm.reset();
+                        Object.values(dateGroups).forEach(function(id) {
+                            var el = document.getElementById(id);
+                            if (el) el.style.display = 'none';
+                        });
+                        setTimeout(function() {
+                            closeModal();
+                            modalMessage.style.display = 'none';
+                        }, 2500);
+                    } else {
+                        throw new Error('Failed');
+                    }
+                } catch(err) {
+                    modalMessage.style.display = 'block';
+                    modalMessage.style.backgroundColor = '#fce8e8';
+                    modalMessage.style.color = '#8b0000';
+                    modalMessage.textContent = 'Klaida. Bandykite dar kartą.';
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Siųsti';
+                }
+            });
+        }
+
+    })();
+    </script>
 </body>
 </html>

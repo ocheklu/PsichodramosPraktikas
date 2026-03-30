@@ -2141,77 +2141,152 @@ a.service-breath {
    18. KONTAKTAI PAGE — MOBILE
    ============================================ */
 
-.contact-buttons-mobile {
-    display: none;
-}
-
-.form-toggle-btn {
+.kontaktai-profile,
+.kontaktai-modal-overlay {
     display: none;
 }
 
 @media (max-width: 768px) {
+
     body.page-kontaktai {
-        background-color: #ffffff;
+        background-color: #FAF9F6;
     }
 
     body.page-kontaktai .hero-page {
         display: none;
     }
 
-    body.page-kontaktai .contact-info {
+    body.page-kontaktai .contact-grid {
         display: none;
     }
 
-    /* Fix: second grid cell takes full width */
-    body.page-kontaktai .contact-grid {
-        display: block;
+    body.page-kontaktai .section {
+        padding-top: 0;
+        padding-bottom: 0;
     }
 
-    .contact-buttons-mobile {
+    /* Profile card */
+    .kontaktai-profile {
         display: flex;
         flex-direction: column;
-        gap: var(--space-sm);
-        padding: var(--space-xl) var(--space-md) var(--space-lg);
-    }
-
-    .contact-btn-mobile {
-        display: flex;
         align-items: center;
-        gap: var(--space-md);
-        padding: var(--space-md) var(--space-lg);
-        background-color: #f0f4f7;
-        border: 1px solid rgba(93, 118, 139, 0.15);
-        border-radius: 50px;
-        color: #5D768B;
-        text-decoration: none;
-        font-size: var(--text-sm);
-        transition: background-color 0.2s ease;
+        padding: var(--space-3xl) var(--space-md) var(--space-2xl);
+        text-align: center;
+    }
+
+    /* Avatar */
+    .kontaktai-avatar {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: var(--space-lg);
+        box-shadow: 0 8px 24px rgba(93, 118, 139, 0.20);
+    }
+
+    .kontaktai-avatar img {
         width: 100%;
-        box-sizing: border-box;
+        height: 100%;
+        object-fit: cover;
     }
 
-    .contact-btn-mobile:hover,
-    .contact-btn-mobile:active {
-        background-color: #e2eaef;
+    .kontaktai-name {
+        font-family: var(--font-heading);
+        font-size: var(--text-2xl);
+        font-weight: 400;
+        color: var(--color-navy);
+        margin-bottom: var(--space-xs);
     }
 
-    .contact-btn-mobile svg {
-        flex-shrink: 0;
-        color: #5D768B;
-        opacity: 0.85;
+    .kontaktai-subtitle {
+        font-size: var(--text-sm);
+        color: var(--color-text-light);
+        letter-spacing: 0.03em;
+        margin-bottom: var(--space-2xl);
     }
 
-    .contact-btn-mobile span {
-        color: #5D768B;
+    /* Contact buttons row */
+    .kontaktai-buttons {
+        display: flex;
+        gap: var(--space-xl);
+        justify-content: center;
+        margin-bottom: var(--space-2xl);
     }
 
-    .form-toggle-btn {
+    .kontaktai-btn-wrap {
+        position: relative;
+    }
+
+    .kontaktai-btn {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background-color: #5D768B;
+        border: none;
+        cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: var(--space-sm);
+        color: #ffffff;
+        box-shadow: 0 4px 12px rgba(93, 118, 139, 0.25);
+        transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .kontaktai-btn:active {
+        background-color: #4A6278;
+        transform: scale(0.95);
+    }
+
+    /* Popup */
+    .kontaktai-popup {
+        display: none;
+        position: absolute;
+        bottom: calc(100% + 10px);
+        left: 50%;
+        transform: translateX(-50%);
+        background: #ffffff;
+        border-radius: var(--radius-md);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        overflow: hidden;
+        min-width: 160px;
+        z-index: 100;
+        border: 1px solid rgba(93, 118, 139, 0.10);
+    }
+
+    .kontaktai-popup.open {
+        display: block;
+    }
+
+    .kontaktai-popup-item {
+        display: block;
         width: 100%;
-        padding: var(--space-md) var(--space-lg);
+        padding: 12px 16px;
+        font-size: var(--text-sm);
+        color: var(--color-navy);
+        text-decoration: none;
+        background: none;
+        border: none;
+        text-align: left;
+        cursor: pointer;
+        font-family: var(--font-primary);
+        border-bottom: 1px solid rgba(93, 118, 139, 0.08);
+        transition: background-color 0.15s ease;
+        box-sizing: border-box;
+    }
+
+    .kontaktai-popup-item:last-child {
+        border-bottom: none;
+    }
+
+    .kontaktai-popup-item:active {
+        background-color: #f0f4f7;
+    }
+
+    /* Message button */
+    .kontaktai-message-btn {
+        width: 100%;
+        max-width: 280px;
+        padding: var(--space-md) var(--space-xl);
         background-color: #5D768B;
         color: #ffffff;
         border: none;
@@ -2219,36 +2294,123 @@ a.service-breath {
         font-size: var(--text-base);
         font-family: var(--font-primary);
         cursor: pointer;
-        margin: var(--space-md) 0;
         transition: background-color 0.2s ease;
-        box-sizing: border-box;
+        letter-spacing: 0.02em;
     }
 
-    .form-toggle-btn:hover,
-    .form-toggle-btn:active {
+    .kontaktai-message-btn:active {
         background-color: #4A6278;
     }
 
-    .contact-form-wrapper {
-        display: none;
-        margin-top: var(--space-md);
+    /* Modal overlay */
+    .kontaktai-modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.50);
+        z-index: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: var(--space-lg);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
     }
 
-    .contact-form-wrapper.form-open {
-        display: block;
+    .kontaktai-modal-overlay.open {
+        opacity: 1;
+        pointer-events: auto;
     }
 
-    .contact-form {
-        background: rgba(93, 118, 139, 0.06);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border: 1px solid rgba(93, 118, 139, 0.15);
+    /* Modal card */
+    .kontaktai-modal {
+        background: #ffffff;
         border-radius: var(--radius-md);
-        padding: var(--space-xl) var(--space-md);
+        padding: var(--space-xl) var(--space-lg);
+        width: 100%;
+        max-width: 400px;
+        max-height: 85vh;
+        overflow-y: auto;
+        position: relative;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.20);
     }
 
-    .section:has(.contact-grid) {
-        background-color: transparent;
-        padding-top: 0;
+    /* Close button */
+    .kontaktai-modal-close {
+        position: absolute;
+        top: var(--space-md);
+        right: var(--space-md);
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--color-text-light);
+        padding: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Modal form */
+    .modal-form-group {
+        margin-bottom: var(--space-md);
+    }
+
+    .modal-input {
+        width: 100%;
+        padding: 12px 14px;
+        border: 1px solid rgba(93, 118, 139, 0.20);
+        border-radius: var(--radius-sm);
+        font-size: var(--text-base);
+        font-family: var(--font-primary);
+        color: var(--color-text);
+        background: #ffffff;
+        outline: none;
+        transition: border-color 0.2s ease;
+        box-sizing: border-box;
+    }
+
+    .modal-input:focus {
+        border-color: #5D768B;
+    }
+
+    .modal-input::placeholder {
+        color: rgba(93, 118, 139, 0.45);
+    }
+
+    .modal-textarea {
+        resize: none;
+        min-height: 80px;
+    }
+
+    .modal-select {
+        appearance: none;
+        -webkit-appearance: none;
+        cursor: pointer;
+    }
+
+    .modal-submit-btn {
+        width: 100%;
+        padding: var(--space-md);
+        background-color: #5D768B;
+        color: #ffffff;
+        border: none;
+        border-radius: 50px;
+        font-size: var(--text-base);
+        font-family: var(--font-primary);
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+        margin-top: var(--space-sm);
+    }
+
+    .modal-submit-btn:active {
+        background-color: #4A6278;
+    }
+
+    .modal-form-message {
+        margin-top: var(--space-md);
+        padding: var(--space-md);
+        border-radius: var(--radius-sm);
+        font-size: var(--text-sm);
+        text-align: center;
     }
 }
