@@ -343,33 +343,7 @@
     </footer>
     
     <!-- JavaScript -->
-    <script>
-        // Mobile menu toggle
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const navMenu = document.getElementById('navMenu');
-        
-        mobileMenuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-        
-        // Header scroll effect
-        const header = document.getElementById('header');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-        
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('nav') && navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
-            }
-        });
-    </script>
+    <script src="js/main.js"></script>
 
     <nav class="nav-bottom" aria-label="Mobilna navigacija">
         <a href="index.html" class="nav-bottom-item">

@@ -2149,7 +2149,13 @@ a.service-breath {
 @media (max-width: 768px) {
 
     body.page-kontaktai {
-        background-color: #FAF9F6;
+        background: linear-gradient(
+            to bottom,
+            #5D768B 0%,
+            #5D768B 120px,
+            #ffffff 280px
+        );
+        background-color: #ffffff;
     }
 
     body.page-kontaktai .hero-page {
@@ -2181,7 +2187,9 @@ a.service-breath {
         border-radius: 50%;
         overflow: hidden;
         margin-bottom: var(--space-lg);
-        box-shadow: 0 8px 24px rgba(93, 118, 139, 0.20);
+        border: 2px solid #ffffff;
+        box-shadow: 0 8px 24px rgba(93, 118, 139, 0.20),
+                    0 0 0 2px #ffffff;
     }
 
     .kontaktai-avatar img {
@@ -2300,18 +2308,19 @@ a.service-breath {
     }
 
     .kontaktai-message-btn {
-        width: 100%;
-        max-width: 280px;
-        padding: var(--space-md) var(--space-xl);
+        width: auto;
+        padding: 10px var(--space-xl);
         background-color: #5D768B;
         color: #ffffff;
         border: none;
         border-radius: 50px;
-        font-size: var(--text-base);
+        font-size: var(--text-sm);
         font-family: var(--font-primary);
         cursor: pointer;
         transition: background-color 0.2s ease;
-        letter-spacing: 0.02em;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin: var(--space-lg) 0 var(--space-xl);
         animation: kontaktai-pulse 2.5s ease-out infinite;
     }
 
@@ -2507,8 +2516,8 @@ a.service-breath {
             to bottom,
             transparent 0%,
             transparent 60%,
-            rgba(20, 35, 50, 0.60) 80%,
-            rgba(20, 35, 50, 0.95) 100%
+            rgba(93, 118, 139, 0.70) 80%,
+            #5D768B 100%
         );
     }
 
