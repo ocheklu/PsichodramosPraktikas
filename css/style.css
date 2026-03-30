@@ -2820,9 +2820,36 @@ a.service-breath {
 @media (min-width: 769px) {
     .home-tekstai-card {
         transition: transform 0.25s ease;
+        aspect-ratio: 1 / 1;
     }
     .home-tekstai-card:hover {
         transform: translateY(-4px);
+    }
+    .home-tekstai-card-overlay {
+        display: none;
+    }
+    .home-tekstai-card-content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 20px 24px 24px;
+        background: #ffffff;
+        z-index: 1;
+    }
+    .home-tekstai-card-time {
+        color: var(--color-text-light);
+    }
+    .home-tekstai-card-title {
+        font-size: 20px;
+        color: var(--color-text);
+    }
+    .home-tekstai-card-desc {
+        color: var(--color-text-light);
+        line-height: 1.6;
+    }
+    .home-tekstai-card-bar {
+        z-index: 2;
     }
 }
 
@@ -2848,6 +2875,11 @@ a.service-breath {
         scroll-snap-stop: always;
         aspect-ratio: 2 / 3;
         height: unset;
+        margin-right: 12px;
+    }
+
+    .home-tekstai-card:last-child {
+        margin-right: 0;
     }
 
     .home-tekstai-card-content {
