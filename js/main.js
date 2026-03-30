@@ -189,6 +189,36 @@ window.addEventListener('DOMContentLoaded', function() {
     updateTekstaiDots();
 });
 
+// HOME page — tekstai swipe strip
+window.addEventListener('DOMContentLoaded', function() {
+    var homeTekstaiStrip = document.querySelector('.home-tekstai-strip');
+    var homeTekstaiCards = document.querySelectorAll('.home-tekstai-card');
+    var homeTekstaiDots = document.querySelectorAll('.home-tekstai-dot');
+
+    if (!homeTekstaiStrip || !homeTekstaiCards.length || !homeTekstaiDots.length) return;
+
+    function updateHomeTekstaiDots() {
+        var stripCenter = homeTekstaiStrip.scrollLeft + homeTekstaiStrip.offsetWidth / 2;
+        var closest = 0;
+        var minDist = Infinity;
+        homeTekstaiCards.forEach(function(card, i) {
+            var cardCenter = card.offsetLeft + card.offsetWidth / 2;
+            var dist = Math.abs(cardCenter - stripCenter);
+            if (dist < minDist) {
+                minDist = dist;
+                closest = i;
+            }
+        });
+        homeTekstaiDots.forEach(function(d, i) {
+            d.classList.toggle('active', i === closest);
+        });
+    }
+
+    homeTekstaiStrip.addEventListener('scroll', updateHomeTekstaiDots, { passive: true });
+    homeTekstaiStrip.addEventListener('touchend', updateHomeTekstaiDots, { passive: true });
+    updateHomeTekstaiDots();
+});
+
 // Custom video play button
 const videoPlayBtn = document.querySelector('.video-play-btn');
 if (videoPlayBtn) {
