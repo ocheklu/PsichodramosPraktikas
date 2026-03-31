@@ -3161,7 +3161,7 @@ a.service-breath {
         padding: 64px 72px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         gap: 0;
     }
 
@@ -3176,8 +3176,8 @@ a.service-breath {
     }
 
     .kd-avatar {
-        width: 72px;
-        height: 72px;
+        width: 120px;
+        height: 120px;
         border-radius: 50%;
         overflow: hidden;
         border: 2px solid rgba(255, 255, 255, 0.3);
@@ -3192,14 +3192,14 @@ a.service-breath {
 
     .kd-name {
         font-family: 'Playfair Display', serif;
-        font-size: 22px;
+        font-size: 28px;
         font-weight: 400;
         color: #ffffff;
-        margin-bottom: 5px;
+        margin-bottom: 8px;
     }
 
     .kd-role {
-        font-size: 11px;
+        font-size: 13px;
         color: rgba(255, 255, 255, 0.55);
         letter-spacing: 0.1em;
         text-transform: uppercase;
@@ -3220,13 +3220,13 @@ a.service-breath {
     }
 
     body.page-kontaktai .contact-item-label {
-        font-size: 10px;
+        font-size: 11px;
         color: rgba(255, 255, 255, 0.45);
         letter-spacing: 0.1em;
     }
 
     body.page-kontaktai .contact-item-value {
-        font-size: 15px;
+        font-size: 17px;
         color: #ffffff;
     }
 
@@ -3279,5 +3279,38 @@ a.service-breath {
     /* Show form directly without toggle */
     body.page-kontaktai .contact-form-wrapper {
         display: block;
+    }
+
+    /* Hide footer — merges visually with dark left panel */
+    body.page-kontaktai .footer {
+        display: none;
+    }
+
+    /* Compact form to balance proportions with left panel */
+    body.page-kontaktai .kontaktai-form-col .form-group {
+        margin-bottom: 14px;
+    }
+
+    body.page-kontaktai .kontaktai-form-col .form-label {
+        font-size: 11px;
+        margin-bottom: 4px;
+        letter-spacing: 0.04em;
+    }
+
+    body.page-kontaktai .kontaktai-form-col .form-input,
+    body.page-kontaktai .kontaktai-form-col .form-select {
+        padding: 8px 14px;
+        font-size: 14px;
+    }
+
+    body.page-kontaktai .kontaktai-form-col .form-textarea {
+        padding: 8px 14px;
+        font-size: 14px;
+        min-height: 80px;
+    }
+
+    body.page-kontaktai .kontaktai-form-col .btn-lg {
+        padding: 10px 24px;
+        font-size: 14px;
     }
 }
