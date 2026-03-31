@@ -123,7 +123,7 @@
     </section>
     
     <!-- CONTACT SECTION -->
-    <section class="section">
+    <section class="section kontaktai-split-section">
 
         <div class="kontaktai-profile">
 
@@ -197,7 +197,19 @@
                 
                 <!-- CONTACT INFO -->
                 <div class="contact-info">
-                    <div>
+
+                    <!-- Desktop identity block -->
+                    <div class="kd-desktop-identity">
+                        <div class="kd-avatar">
+                            <img src="images/contacts/oleg.jpg" alt="Oleg Čeklu" loading="lazy">
+                        </div>
+                        <div class="kd-identity-text">
+                            <p class="kd-name">Oleg Čeklu</p>
+                            <p class="kd-role">Psichodramos praktikas · Vilnius</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-intro">
                         <h2 class="heading-3 mb-lg">Susisiekime</h2>
                         <p class="text-body mb-xl">
                             Norint užsisakyti meno / judesio terapijos sesiją kolektyvui ar užsiregistruoti konsultacijai / grupiniam užsiėmimui,
@@ -243,7 +255,13 @@
                 </div>
                 
                 <!-- CONTACT FORM -->
-                <div>
+                <div class="kontaktai-form-col">
+
+                    <!-- Desktop form header -->
+                    <div class="kd-desktop-form-header">
+                        <h2 class="kd-form-title">Registracija</h2>
+                    </div>
+
                     <div class="contact-buttons-mobile">
                         <a href="mailto:psichodramospraktikas@gmail.com" class="contact-btn-mobile">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -338,22 +356,48 @@
                         <!-- Subject -->
                         <div class="form-group">
                             <label for="message-subject" class="form-label">Tema *</label>
-                            <select 
-                                id="message-subject" 
-                                name="message_subject" 
+                            <select
+                                id="message-subject"
+                                name="message_subject"
                                 class="form-select"
                                 required
                             >
                                 <option value="">Pasirinkite temą</option>
                                 <option value="Individuali sesija">Individuali sesija</option>
-                                <option value="Judėjimo terapija">Judėjimo terapija</option>
-                                <option value="Grupinės sesijos">Grupinės sesijos</option>
-                                <option value="Klausimai">Klausimai</option>
-                                <option value="Kita">Kita</option>
+                                <option value="Judesio terapija">Judesio terapija</option>
+                                <option value="Meno terapija">Meno terapija</option>
+                                <option value="Klausimas">Klausimas</option>
                             </select>
                             <span class="form-error">Prašome pasirinkti temą</span>
                         </div>
-                        
+
+                        <!-- Date selection — shown conditionally -->
+                        <div class="form-group" id="desktopDateGroupIndividuali" style="display:none;">
+                            <label class="form-label">Data</label>
+                            <select name="date_individuali" class="form-select">
+                                <option value="">Pasirinkite datą</option>
+                                <option value="Balandžio 14 d. 14:00">Balandžio 14 d. 14:00</option>
+                                <option value="Balandžio 21 d. 14:00">Balandžio 21 d. 14:00</option>
+                                <option value="Balandžio 28 d. 14:00">Balandžio 28 d. 14:00</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" id="desktopDateGroupJudesio" style="display:none;">
+                            <label class="form-label">Data</label>
+                            <select name="date_judesio" class="form-select">
+                                <option value="">Pasirinkite datą</option>
+                                <option value="Gegužės 14 dieną 18:00">Gegužės 14 dieną 18:00</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" id="desktopDateGroupMeno" style="display:none;">
+                            <label class="form-label">Data</label>
+                            <select name="date_meno" class="form-select">
+                                <option value="">Pasirinkite datą</option>
+                                <option value="Gegužės 24 dieną 14:00">Gegužės 24 dieną 14:00</option>
+                            </select>
+                        </div>
+
                         <!-- Message -->
                         <div class="form-group">
                             <label for="message" class="form-label">Žinutė *</label>
@@ -396,33 +440,8 @@
     </footer>
     
     <!-- JavaScript -->
+    <script src="js/main.js"></script>
     <script>
-        // Mobile menu toggle
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const navMenu = document.getElementById('navMenu');
-        
-        mobileMenuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-        
-        // Header scroll effect
-        const header = document.getElementById('header');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-        
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('nav') && navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
-            }
-        });
-        
         // Form submission handling
         const form = document.getElementById('contactForm');
         const submitBtn = document.getElementById('submitBtn');
@@ -456,7 +475,8 @@
                     
                     // Reset form
                     form.reset();
-                    
+                    hideDesktopDateGroups();
+
                     // Re-enable button
                     setTimeout(() => {
                         submitBtn.disabled = false;
@@ -507,6 +527,32 @@
         
         function isValidEmail(email) {
             return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        // Desktop date group logic
+        const desktopDateGroups = {
+            'Individuali sesija': 'desktopDateGroupIndividuali',
+            'Judesio terapija':   'desktopDateGroupJudesio',
+            'Meno terapija':      'desktopDateGroupMeno'
+        };
+
+        function hideDesktopDateGroups() {
+            Object.values(desktopDateGroups).forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.style.display = 'none';
+            });
+        }
+
+        const desktopSubject = document.getElementById('message-subject');
+        if (desktopSubject) {
+            desktopSubject.addEventListener('change', function() {
+                hideDesktopDateGroups();
+                const groupId = desktopDateGroups[this.value];
+                if (groupId) {
+                    const el = document.getElementById(groupId);
+                    if (el) el.style.display = 'block';
+                }
+            });
         }
     </script>
     <script>
