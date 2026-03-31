@@ -2499,7 +2499,7 @@ a.service-breath {
 
     .tekstai-nav-card img {
         width: 100%;
-        flex: 4;
+        flex: 3;
         min-height: 0;
         object-fit: cover;
         object-position: center;
@@ -2515,7 +2515,7 @@ a.service-breath {
         padding: 16px;
         background: #5D768B;
         border-top: 3px solid #ffffff;
-        flex: 1;
+        flex: 2;
         overflow: hidden;
     }
 
@@ -2629,7 +2629,6 @@ a.service-breath {
     .tekstai-nav-strip {
         display: flex;
         overflow-x: auto;
-        scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         gap: 24px;
@@ -2645,8 +2644,6 @@ a.service-breath {
 
     .tekstai-nav-card {
         flex: 0 0 calc(30% - 16px);
-        scroll-snap-align: start;
-        scroll-snap-stop: always;
         position: relative;
         overflow: hidden;
         text-decoration: none;

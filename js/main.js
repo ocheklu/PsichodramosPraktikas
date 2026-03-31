@@ -67,7 +67,7 @@ if (rotateTexts.length > 0) {
         }, 400);  // Половина времени анимации (0.8s / 2)
     }
 
-    setInterval(rotateText, 4000);
+    setInterval(rotateText, 1600);
 }
 
 // Services nav strip — dot indicators
@@ -165,52 +165,30 @@ window.addEventListener('DOMContentLoaded', function() {
     var tekstaiCards = document.querySelectorAll('.tekstai-nav-card');
     var tekstaiDots = document.querySelectorAll('.tekstai-nav-dot');
 
-    if (!tekstaiStrip || !tekstaiCards.length) return;
+    if (!tekstaiStrip || !tekstaiCards.length || !tekstaiDots.length) return;
 
-    var totalCards = tekstaiCards.length;
-    var currentIndex = 0;
-    var touchStartX = 0;
-    var isSwiping = false;
-
-    function scrollToCard(index, instant) {
-        currentIndex = Math.max(0, Math.min(index, totalCards - 1));
-        tekstaiStrip.scrollTo({
-            left: tekstaiCards[currentIndex].offsetLeft,
-            behavior: instant ? 'instant' : 'smooth'
+    function updateTekstaiDots() {
+        var stripCenter = tekstaiStrip.scrollLeft + tekstaiStrip.offsetWidth / 2;
+        var closest = 0;
+        var minDist = Infinity;
+        tekstaiCards.forEach(function(card, i) {
+            var cardCenter = card.offsetLeft + card.offsetWidth / 2;
+            var dist = Math.abs(cardCenter - stripCenter);
+            if (dist < minDist) {
+                minDist = dist;
+                closest = i;
+            }
         });
-        updateTekstaiDots(currentIndex);
-    }
-
-    function updateTekstaiDots(index) {
-        if (!tekstaiDots.length) return;
         tekstaiDots.forEach(function(d, i) {
-            d.classList.toggle('active', i === index);
+            d.classList.toggle('active', i === closest);
         });
     }
 
-    tekstaiStrip.addEventListener('touchstart', function(e) {
-        touchStartX = e.touches[0].clientX;
-        isSwiping = false;
-    }, { passive: true });
+    tekstaiStrip.scrollLeft = 0;
 
-    tekstaiStrip.addEventListener('touchmove', function(e) {
-        var diff = Math.abs(touchStartX - e.touches[0].clientX);
-        if (diff > 10) {
-            isSwiping = true;
-            e.preventDefault();
-        }
-    }, { passive: false });
-
-    tekstaiStrip.addEventListener('touchend', function(e) {
-        if (!isSwiping) return;
-        var diff = touchStartX - e.changedTouches[0].clientX;
-        if (Math.abs(diff) > 40) {
-            scrollToCard(diff > 0 ? currentIndex + 1 : currentIndex - 1, false);
-        } else {
-            scrollToCard(currentIndex, false);
-        }
-        isSwiping = false;
-    }, { passive: true });
+    tekstaiStrip.addEventListener('scroll', updateTekstaiDots, { passive: true });
+    tekstaiStrip.addEventListener('touchend', updateTekstaiDots, { passive: true });
+    updateTekstaiDots();
 
     // Desktop arrows
     var prevArrow = document.querySelector('.tekstai-strip-arrow--prev');
@@ -218,24 +196,23 @@ window.addEventListener('DOMContentLoaded', function() {
 
     if (prevArrow && nextArrow) {
         function updateArrows() {
-            prevArrow.classList.toggle('hidden', currentIndex <= 0);
-            nextArrow.classList.toggle('hidden', currentIndex >= totalCards - 1);
+            prevArrow.classList.toggle('hidden', tekstaiStrip.scrollLeft <= 0);
+            nextArrow.classList.toggle('hidden', tekstaiStrip.scrollLeft + tekstaiStrip.offsetWidth >= tekstaiStrip.scrollWidth - 1);
         }
 
         prevArrow.addEventListener('click', function() {
-            scrollToCard(currentIndex - 1, false);
-            updateArrows();
+            var cardWidth = tekstaiCards[0].offsetWidth + 24;
+            tekstaiStrip.scrollBy({ left: -cardWidth, behavior: 'smooth' });
         });
 
         nextArrow.addEventListener('click', function() {
-            scrollToCard(currentIndex + 1, false);
-            updateArrows();
+            var cardWidth = tekstaiCards[0].offsetWidth + 24;
+            tekstaiStrip.scrollBy({ left: cardWidth, behavior: 'smooth' });
         });
 
-        updateArrows();
+        tekstaiStrip.addEventListener('scroll', updateArrows, { passive: true });
+        requestAnimationFrame(updateArrows);
     }
-
-    scrollToCard(0, true);
 });
 
 // HOME page — tekstai swipe strip
