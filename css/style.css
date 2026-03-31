@@ -2636,7 +2636,7 @@ a.service-breath {
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         gap: 20px;
-        padding: 0 var(--space-lg) var(--space-md);
+        padding: var(--space-md) var(--space-lg) var(--space-xl);
         max-width: var(--container-xl);
         margin: 0 auto;
         margin-top: var(--space-2xl);
@@ -2654,7 +2654,7 @@ a.service-breath {
         overflow: hidden;
         text-decoration: none;
         display: block;
-        aspect-ratio: 1 / 1;
+        aspect-ratio: 3 / 4;
         border-bottom: 4px solid #5D768B;
         transition: transform 0.25s ease;
     }
@@ -2706,6 +2706,10 @@ a.service-breath {
     }
 
     .tekstai-nav-dots {
+        display: none;
+    }
+
+    .page-tekstai .footer {
         display: none;
     }
 
