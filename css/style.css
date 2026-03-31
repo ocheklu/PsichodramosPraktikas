@@ -3158,7 +3158,7 @@ a.service-breath {
     /* ── LEFT PANEL (dark) ── */
     body.page-kontaktai .contact-info {
         background-color: #5D768B;
-        padding: 64px 72px;
+        padding: 80px 72px 64px max(var(--space-lg), calc((100vw - var(--container-xl)) / 2 + var(--space-lg)));
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -3242,10 +3242,10 @@ a.service-breath {
     /* ── RIGHT PANEL (light) ── */
     body.page-kontaktai .kontaktai-form-col {
         background-color: #FAF9F6;
-        padding: 64px 72px;
+        padding: 80px 72px 64px 72px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
     }
 
     /* Desktop form heading */
