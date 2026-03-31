@@ -67,7 +67,7 @@ if (rotateTexts.length > 0) {
         }, 400);  // Половина времени анимации (0.8s / 2)
     }
 
-    setInterval(rotateText, 1600);
+    setInterval(rotateText, 2000);
 }
 
 // Services nav strip — dot indicators
