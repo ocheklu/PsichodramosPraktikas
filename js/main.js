@@ -165,52 +165,53 @@ window.addEventListener('DOMContentLoaded', function() {
     var tekstaiCards = document.querySelectorAll('.tekstai-nav-card');
     var tekstaiDots = document.querySelectorAll('.tekstai-nav-dot');
 
-    if (!tekstaiStrip || !tekstaiCards.length || !tekstaiDots.length) return;
+    if (!tekstaiStrip || !tekstaiCards.length) return;
 
-    function updateTekstaiDots() {
-        var stripCenter = tekstaiStrip.scrollLeft + tekstaiStrip.offsetWidth / 2;
-        var closest = 0;
-        var minDist = Infinity;
-        tekstaiCards.forEach(function(card, i) {
-            var cardCenter = card.offsetLeft + card.offsetWidth / 2;
-            var dist = Math.abs(cardCenter - stripCenter);
-            if (dist < minDist) {
-                minDist = dist;
-                closest = i;
-            }
-        });
+    var totalCards = tekstaiCards.length;
+    var currentIndex = 0;
+    var touchStartX = 0;
+
+    function scrollToCard(index) {
+        currentIndex = (index + totalCards) % totalCards;
+        tekstaiStrip.scrollTo({ left: tekstaiCards[currentIndex].offsetLeft, behavior: 'smooth' });
+        updateTekstaiDots(currentIndex);
+    }
+
+    function updateTekstaiDots(index) {
+        if (!tekstaiDots.length) return;
         tekstaiDots.forEach(function(d, i) {
-            d.classList.toggle('active', i === closest);
+            d.classList.toggle('active', i === index);
         });
     }
 
-    tekstaiStrip.addEventListener('scroll', updateTekstaiDots, { passive: true });
-    tekstaiStrip.addEventListener('touchend', updateTekstaiDots, { passive: true });
-    updateTekstaiDots();
+    tekstaiStrip.addEventListener('touchstart', function(e) {
+        touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+
+    tekstaiStrip.addEventListener('touchend', function(e) {
+        var diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) {
+            scrollToCard(diff > 0 ? currentIndex + 1 : currentIndex - 1);
+        }
+    }, { passive: true });
 
     // Desktop arrows
     var prevArrow = document.querySelector('.tekstai-strip-arrow--prev');
     var nextArrow = document.querySelector('.tekstai-strip-arrow--next');
 
     if (prevArrow && nextArrow) {
-        function updateArrows() {
-            prevArrow.classList.toggle('hidden', tekstaiStrip.scrollLeft <= 0);
-            nextArrow.classList.toggle('hidden', tekstaiStrip.scrollLeft + tekstaiStrip.offsetWidth >= tekstaiStrip.scrollWidth - 1);
-        }
+        prevArrow.classList.remove('hidden');
 
         prevArrow.addEventListener('click', function() {
-            var cardWidth = tekstaiCards[0] ? tekstaiCards[0].offsetWidth + 20 : 300;
-            tekstaiStrip.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+            scrollToCard(currentIndex - 1);
         });
 
         nextArrow.addEventListener('click', function() {
-            var cardWidth = tekstaiCards[0] ? tekstaiCards[0].offsetWidth + 20 : 300;
-            tekstaiStrip.scrollBy({ left: cardWidth, behavior: 'smooth' });
+            scrollToCard(currentIndex + 1);
         });
-
-        tekstaiStrip.addEventListener('scroll', updateArrows, { passive: true });
-        updateArrows();
     }
+
+    scrollToCard(0);
 });
 
 // HOME page — tekstai swipe strip
