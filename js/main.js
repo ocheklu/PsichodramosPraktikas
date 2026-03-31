@@ -187,6 +187,30 @@ window.addEventListener('DOMContentLoaded', function() {
     tekstaiStrip.addEventListener('scroll', updateTekstaiDots, { passive: true });
     tekstaiStrip.addEventListener('touchend', updateTekstaiDots, { passive: true });
     updateTekstaiDots();
+
+    // Desktop arrows
+    var prevArrow = document.querySelector('.tekstai-strip-arrow--prev');
+    var nextArrow = document.querySelector('.tekstai-strip-arrow--next');
+
+    if (prevArrow && nextArrow) {
+        function updateArrows() {
+            prevArrow.classList.toggle('hidden', tekstaiStrip.scrollLeft <= 0);
+            nextArrow.classList.toggle('hidden', tekstaiStrip.scrollLeft + tekstaiStrip.offsetWidth >= tekstaiStrip.scrollWidth - 1);
+        }
+
+        prevArrow.addEventListener('click', function() {
+            var cardWidth = tekstaiCards[0] ? tekstaiCards[0].offsetWidth + 20 : 300;
+            tekstaiStrip.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+        });
+
+        nextArrow.addEventListener('click', function() {
+            var cardWidth = tekstaiCards[0] ? tekstaiCards[0].offsetWidth + 20 : 300;
+            tekstaiStrip.scrollBy({ left: cardWidth, behavior: 'smooth' });
+        });
+
+        tekstaiStrip.addEventListener('scroll', updateArrows, { passive: true });
+        updateArrows();
+    }
 });
 
 // HOME page — tekstai swipe strip
