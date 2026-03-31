@@ -2457,12 +2457,12 @@ a.service-breath {
 
 @media (max-width: 768px) {
 
-    body.page-tekstai .blog-grid {
+    body.page-tekstai .section-header {
         display: none;
     }
 
-    body.page-tekstai .section-header {
-        display: none;
+    .tekstai-strip-arrow {
+        display: none !important;
     }
 
     .tekstai-nav-strip {
@@ -2608,7 +2608,7 @@ a.service-breath {
         font-size: 24px;
         line-height: 1;
         color: #5D768B;
-        transition: opacity 0.2s ease, box-shadow 0.2s ease;
+        transition: opacity 0.2s ease, visibility 0.2s ease, box-shadow 0.2s ease;
     }
 
     .tekstai-strip-arrow:hover {
@@ -2625,6 +2625,7 @@ a.service-breath {
 
     .tekstai-strip-arrow.hidden {
         opacity: 0;
+        visibility: hidden;
         pointer-events: none;
     }
 
@@ -2673,11 +2674,16 @@ a.service-breath {
     }
 
     .tekstai-nav-card-overlay {
-        background: #ffffff;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
         top: auto;
-        padding: 20px 24px 24px;
+        display: flex;
         flex-direction: column;
         justify-content: flex-start;
+        background: #ffffff;
+        padding: 20px 24px 24px;
     }
 
     .tekstai-nav-card-meta {
@@ -2702,6 +2708,7 @@ a.service-breath {
     .tekstai-nav-dots {
         display: none;
     }
+
 }
 
 /* === EVENTS SECTION === */
