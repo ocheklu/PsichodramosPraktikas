@@ -172,7 +172,7 @@ window.addEventListener('DOMContentLoaded', function() {
     var touchStartX = 0;
 
     function scrollToCard(index) {
-        currentIndex = (index + totalCards) % totalCards;
+        currentIndex = Math.max(0, Math.min(index, totalCards - 1));
         tekstaiStrip.scrollTo({ left: tekstaiCards[currentIndex].offsetLeft, behavior: 'smooth' });
         updateTekstaiDots(currentIndex);
     }
@@ -200,15 +200,22 @@ window.addEventListener('DOMContentLoaded', function() {
     var nextArrow = document.querySelector('.tekstai-strip-arrow--next');
 
     if (prevArrow && nextArrow) {
-        prevArrow.classList.remove('hidden');
+        function updateArrows() {
+            prevArrow.classList.toggle('hidden', currentIndex <= 0);
+            nextArrow.classList.toggle('hidden', currentIndex >= totalCards - 1);
+        }
 
         prevArrow.addEventListener('click', function() {
             scrollToCard(currentIndex - 1);
+            updateArrows();
         });
 
         nextArrow.addEventListener('click', function() {
             scrollToCard(currentIndex + 1);
+            updateArrows();
         });
+
+        updateArrows();
     }
 
     scrollToCard(0);

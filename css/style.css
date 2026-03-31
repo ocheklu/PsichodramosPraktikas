@@ -3048,7 +3048,7 @@ a.service-breath {
         width: 100%;
         box-sizing: border-box;
         z-index: 1;
-        height: 20%;
+        height: 30%;
         flex-shrink: 0;
         overflow: hidden;
         margin-top: auto;
