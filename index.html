@@ -76,7 +76,7 @@
             }
         },
         {
-            "@type": ["Person", "Counselor"],
+            "@type": "Person",
             "@id": "https://psichodramospraktikas.lt/#person",
             "name": "Oleg Čeklu",
             "jobTitle": "Psichodramos, judesio ir meno terapijos praktikas",
@@ -147,6 +147,16 @@
                     "description": "7 dienų psichodramatinis intensyvas"
                 }
             ],
+            "hasOccupation": {
+                "@type": "Occupation",
+                "name": "Psychodrama Practitioner",
+                "alternateName": "Psichodramos, judesio ir meno terapijos praktikas",
+                "occupationLocation": {
+                    "@type": "City",
+                    "name": "Vilnius"
+                },
+                "skills": "Psychodrama, Dance Movement Therapy, Art Therapy"
+            },
             "memberOf": {
                 "@type": "Organization",
                 "@id": "https://psichodramospraktikas.lt/#organization"
@@ -206,6 +216,67 @@
             "url": "https://psichodramospraktikas.lt/paslaugos.html#meno-terapija"
         }
     ]
+}
+</script>
+
+    <!-- Schema.org LocalBusiness -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "HealthAndBeautyBusiness",
+    "@id": "https://psichodramospraktikas.lt/#localbusiness",
+    "name": "Oleg Čeklu | Psichodrama, Judesio ir Meno Terapija",
+    "description": "Psichodrama, judesio terapija ir meno terapija Vilniuje. Individualios konsultacijos ir grupiniai užsiėmimai.",
+    "url": "https://psichodramospraktikas.lt",
+    "telephone": "+370-671-68072",
+    "email": "psichodramospraktikas@gmail.com",
+    "image": "https://psichodramospraktikas.lt/images/index-page/oleg-2.jpg",
+    "priceRange": "€€",
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Vilnius",
+        "addressRegion": "Vilniaus apskritis",
+        "addressCountry": "LT"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 54.6872,
+        "longitude": 25.2797
+    },
+    "areaServed": {
+        "@type": "City",
+        "name": "Vilnius"
+    },
+    "sameAs": [
+        "https://www.instagram.com/psichodramospraktikas"
+    ],
+    "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Terapijos formos",
+        "itemListElement": [
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Individuali sesija (Psichodrama)"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Judesio terapija"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Meno terapija"
+                }
+            }
+        ]
+    }
 }
 </script>
 </head>
