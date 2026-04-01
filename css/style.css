@@ -1020,7 +1020,7 @@ a.service-breath {
   min-width: 44px;
   min-height: 44px;
   padding: var(--space-xs);
-  color: var(--color-sage);
+  color: var(--color-navy);
   text-decoration: none;
   background: none;
   border: none;
@@ -1030,19 +1030,34 @@ a.service-breath {
 }
 
 .share-btn:hover {
-  color: var(--color-navy);
+  color: var(--color-navy-dark);
 }
 
 .share-btn-label {
   font-size: 11px;
   font-weight: 500;
-  color: var(--color-teal);
+  color: var(--color-navy);
   letter-spacing: 0.02em;
   transition: color var(--transition-base);
 }
 
 .share-btn:hover .share-btn-label {
-  color: var(--color-navy);
+  color: var(--color-navy-dark);
+}
+
+/* Web Share API кнопка — только мобиль */
+.share-btn-native {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .share-btn-native {
+    display: flex;
+  }
+  .share-btn-whatsapp,
+  .share-btn-telegram {
+    display: none;
+  }
 }
 
 /* Блок "Kiti tekstai" — мягкое органичное завершение статьи */

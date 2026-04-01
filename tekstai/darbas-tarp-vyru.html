@@ -205,7 +205,7 @@
 
                         <!-- WhatsApp -->
                         <a href="#"
-                           class="share-btn"
+                           class="share-btn share-btn-whatsapp"
                            onclick="event.preventDefault(); window.open('https://wa.me/?text=' + encodeURIComponent(window.location.href), '_blank', 'noopener,noreferrer')"
                            aria-label="Dalintis WhatsApp">
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -216,7 +216,7 @@
 
                         <!-- Telegram -->
                         <a href="#"
-                           class="share-btn"
+                           class="share-btn share-btn-telegram"
                            onclick="event.preventDefault(); window.open('https://t.me/share/url?url=' + encodeURIComponent(window.location.href), '_blank', 'noopener,noreferrer')"
                            aria-label="Dalintis Telegram">
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -224,6 +224,18 @@
                             </svg>
                             <span class="share-btn-label">Telegram</span>
                         </a>
+
+                        <!-- Native share (mobile) -->
+                        <button class="share-btn share-btn-native"
+                                onclick="if(navigator.share){navigator.share({url:window.location.href})}"
+                                aria-label="Dalintis">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                                <polyline points="16 6 12 2 8 6"/>
+                                <line x1="12" y1="2" x2="12" y2="15"/>
+                            </svg>
+                            <span class="share-btn-label">Dalintis</span>
+                        </button>
 
                         <!-- Copy link -->
                         <button class="share-btn"
