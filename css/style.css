@@ -2708,7 +2708,8 @@ a.service-breath {
     }
 
     .tekstai-nav-card img.img-pos-top {
-        object-position: center bottom;
+        height: 58%;
+        object-position: center top;
     }
 
     .tekstai-nav-card-overlay {
