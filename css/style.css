@@ -2707,10 +2707,6 @@ a.service-breath {
         left: 0;
     }
 
-    .tekstai-nav-card img.img-pos-top {
-        height: 58%;
-        object-position: center top;
-    }
 
     .tekstai-nav-card-overlay {
         position: absolute;
