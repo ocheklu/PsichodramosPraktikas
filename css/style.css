@@ -1603,14 +1603,9 @@ a.service-breath {
     opacity: 0.2;
   }
 
-  /* Hero logo — mobile only */
+  /* Hero logo — hidden on mobile */
   .hero-logo {
-    display: block;
-    height: 38px;
-    width: auto;
-    margin-bottom: var(--space-lg);
-    filter: brightness(0) invert(1);
-    opacity: 0.9;
+    display: none;
   }
 
 
