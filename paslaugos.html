@@ -249,7 +249,7 @@
                         </p>
                     </div>
 
-                    <a href="kontaktai.html" class="btn btn-primary btn-lg">Užsiregistruoti</a>
+                    <button class="btn btn-primary btn-lg" data-open-modal data-topic="Meno terapija">Užsiregistruoti</button>
                 </div>
 
                 <!-- Image (desktop only — mobile version is inside about-content) -->
@@ -331,7 +331,7 @@
                         </p>
                     </div>
 
-                    <a href="kontaktai.html" class="btn btn-primary btn-lg">Užsiregistruoti</a>
+                    <button class="btn btn-primary btn-lg" data-open-modal data-topic="Judesio terapija">Užsiregistruoti</button>
                 </div>
             </div>
         </div>
@@ -392,7 +392,7 @@
                         </p>
                     </div>
 
-                    <a href="kontaktai.html" class="btn btn-primary btn-lg">Užsiregistruoti</a>
+                    <button class="btn btn-primary btn-lg" data-open-modal data-topic="Individuali sesija">Užsiregistruoti</button>
                 </div>
 
                 <!-- Image (desktop only — mobile version is inside about-content) -->
@@ -406,6 +406,84 @@
             </div>
         </div>
     </section>
+
+    <!-- REGISTRATION MODAL -->
+    <div class="reg-modal-overlay" id="regModalOverlay" aria-hidden="true">
+        <div class="reg-modal" role="dialog" aria-modal="true" aria-labelledby="regModalTitle">
+            <button class="reg-modal-close" id="regModalClose" aria-label="Uždaryti">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 6 6 18M6 6l12 12"/>
+                </svg>
+            </button>
+            <h2 class="reg-modal-title" id="regModalTitle">Registracija</h2>
+            <form action="https://api.web3forms.com/submit" method="POST" id="regModalForm" class="contact-form">
+                <input type="hidden" name="access_key" value="22a6c7fc-3418-4fb9-8fa1-4f3d490a8cdd">
+                <input type="hidden" name="redirect" value="https://psichodramospraktikas.lt/aciu.html">
+                <input type="hidden" name="subject" value="Nauja užklausa iš psichodramospraktikas.lt">
+                <input type="hidden" name="from_name" value="Psichodramospraktikas.lt">
+                <input type="checkbox" name="botcheck" class="honeypot">
+
+                <div class="form-group">
+                    <label for="rm-name" class="form-label">Vardas *</label>
+                    <input type="text" id="rm-name" name="name" class="form-input" required placeholder="Jūsų vardas">
+                </div>
+
+                <div class="form-group">
+                    <label for="rm-email" class="form-label">El. paštas *</label>
+                    <input type="email" id="rm-email" name="email" class="form-input" required placeholder="jusu@elpastas.lt">
+                </div>
+
+                <div class="form-group">
+                    <label for="rm-phone" class="form-label">Telefonas</label>
+                    <input type="tel" id="rm-phone" name="phone" class="form-input" placeholder="+370 6XX XXXXX">
+                </div>
+
+                <div class="form-group">
+                    <label for="rm-topic" class="form-label">Tema *</label>
+                    <select id="rm-topic" name="message_subject" class="form-select" required>
+                        <option value="">Pasirinkite temą</option>
+                        <option value="Individuali sesija">Individuali sesija</option>
+                        <option value="Judesio terapija">Judesio terapija</option>
+                        <option value="Meno terapija">Meno terapija</option>
+                        <option value="Klausimas">Klausimas</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="rm-date-individuali" style="display:none;">
+                    <label class="form-label">Data *</label>
+                    <select name="date_individuali" id="rm-date-individuali-select" class="form-select">
+                        <option value="">Pasirinkite datą</option>
+                        <option value="Balandžio 14 d. 14:00">Balandžio 14 d. 14:00</option>
+                        <option value="Balandžio 21 d. 14:00">Balandžio 21 d. 14:00</option>
+                        <option value="Balandžio 28 d. 14:00">Balandžio 28 d. 14:00</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="rm-date-judesio" style="display:none;">
+                    <label class="form-label">Data *</label>
+                    <select name="date_judesio" id="rm-date-judesio-select" class="form-select">
+                        <option value="">Pasirinkite datą</option>
+                        <option value="Gegužės 14 dieną 18:00">Gegužės 14 dieną 18:00</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="rm-date-meno" style="display:none;">
+                    <label class="form-label">Data *</label>
+                    <select name="date_meno" id="rm-date-meno-select" class="form-select">
+                        <option value="">Pasirinkite datą</option>
+                        <option value="Gegužės 24 dieną 14:00">Gegužės 24 dieną 14:00</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="rm-message" class="form-label">Žinutė *</label>
+                    <textarea id="rm-message" name="message" class="form-textarea" required placeholder="Jūsų žinutė..." rows="4"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">Siųsti žinutę</button>
+            </form>
+        </div>
+    </div>
 
     <!-- FOOTER -->
     <footer class="footer">
@@ -421,6 +499,73 @@
 
     <!-- JavaScript -->
     <script src="js/main.js"></script>
+
+    <script>
+    (function () {
+        const overlay = document.getElementById('regModalOverlay');
+        const closeBtn = document.getElementById('regModalClose');
+        const topicSelect = document.getElementById('rm-topic');
+        const dateGroups = {
+            'Individuali sesija': document.getElementById('rm-date-individuali'),
+            'Judesio terapija':   document.getElementById('rm-date-judesio'),
+            'Meno terapija':      document.getElementById('rm-date-meno'),
+        };
+        const dateSelects = {
+            'Individuali sesija': document.getElementById('rm-date-individuali-select'),
+            'Judesio terapija':   document.getElementById('rm-date-judesio-select'),
+            'Meno terapija':      document.getElementById('rm-date-meno-select'),
+        };
+
+        function showDateGroup(topic) {
+            Object.keys(dateGroups).forEach(function (key) {
+                const group = dateGroups[key];
+                const sel = dateSelects[key];
+                if (key === topic) {
+                    group.style.display = '';
+                    sel.required = true;
+                } else {
+                    group.style.display = 'none';
+                    sel.required = false;
+                    sel.value = '';
+                }
+            });
+        }
+
+        function openModal(topic) {
+            topicSelect.value = topic || '';
+            showDateGroup(topic);
+            overlay.classList.add('is-open');
+            overlay.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            overlay.classList.remove('is-open');
+            overlay.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('[data-open-modal]').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                openModal(btn.dataset.topic);
+            });
+        });
+
+        closeBtn.addEventListener('click', closeModal);
+
+        overlay.addEventListener('click', function (e) {
+            if (e.target === overlay) closeModal();
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        topicSelect.addEventListener('change', function () {
+            showDateGroup(topicSelect.value);
+        });
+    })();
+    </script>
 
     <nav class="nav-bottom" aria-label="Mobilna navigacija">
         <a href="index.html" class="nav-bottom-item">

@@ -3224,10 +3224,10 @@ a.service-breath {
     /* ── LEFT PANEL (dark) ── */
     body.page-kontaktai .contact-info {
         background-color: #5D768B;
-        padding: 80px 72px 64px max(var(--space-lg), calc((100vw - var(--container-xl)) / 2 + var(--space-lg)));
+        padding: 80px 100px 64px max(var(--space-lg), calc((100vw - var(--container-xl)) / 2 + var(--space-lg)));
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: center;
         gap: 0;
     }
 
@@ -3242,8 +3242,8 @@ a.service-breath {
     }
 
     .kd-avatar {
-        width: 120px;
-        height: 120px;
+        width: 80px;
+        height: 80px;
         border-radius: 50%;
         overflow: hidden;
         border: 2px solid rgba(255, 255, 255, 0.3);
@@ -3308,10 +3308,10 @@ a.service-breath {
     /* ── RIGHT PANEL (light) ── */
     body.page-kontaktai .kontaktai-form-col {
         background-color: #FAF9F6;
-        padding: 80px 72px 64px 72px;
+        padding: 80px 100px 64px 80px;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: center;
     }
 
     /* Desktop form heading */
@@ -3412,4 +3412,89 @@ a.service-breath {
         padding: 10px 28px;
         font-size: 14px;
     }
+}
+
+/* ============================================
+   REGISTRATION MODAL (paslaugos.html)
+   ============================================ */
+/* Mobile: bottom sheet */
+.reg-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1000;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.reg-modal-overlay.is-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.reg-modal {
+    background: #FAF9F6;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    padding: 28px 24px 40px;
+    width: 100%;
+    max-width: 100%;
+    max-height: 92vh;
+    overflow-y: auto;
+    position: relative;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.reg-modal-overlay.is-open .reg-modal {
+    transform: translateY(0);
+}
+
+/* Desktop: centered modal */
+@media (min-width: 769px) {
+    .reg-modal-overlay {
+        align-items: center;
+        padding: var(--space-lg);
+    }
+
+    .reg-modal {
+        border-radius: var(--radius-md);
+        padding: 40px;
+        max-width: 480px;
+        max-height: 90vh;
+        transform: translateY(16px);
+    }
+
+    .reg-modal-overlay.is-open .reg-modal {
+        transform: translateY(0);
+    }
+}
+
+.reg-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-navy);
+    opacity: 0.5;
+    padding: 4px;
+    line-height: 1;
+}
+
+.reg-modal-close:hover {
+    opacity: 1;
+}
+
+.reg-modal-title {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--color-navy);
+    margin-bottom: var(--space-xl);
 }
