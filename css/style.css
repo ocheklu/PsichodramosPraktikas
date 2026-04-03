@@ -1530,15 +1530,9 @@ a.service-breath {
     display: none;
   }
 
-  /* 6. Rotating text */
+  /* 6. Rotating text — hidden on mobile */
   .hero-rotating {
-    display: block;
-    position: relative;
-    margin-top: var(--space-xs);
-    margin-left: 0;
-    height: 1.6em;
-    font-size: clamp(1.1rem, 5vw, 1.4rem);
-    color: var(--color-text-light);
+    display: none;
   }
 
   .rotate-text {
@@ -1619,12 +1613,13 @@ a.service-breath {
     opacity: 0.9;
   }
 
-  /* Hero subtitle — Playfair italic on mobile */
+
+  /* Hero subtitle — uppercase tracking on mobile */
   .hero-dark .hero-subtitle {
-    font-family: var(--font-heading);
-    font-style: italic;
-    font-size: clamp(1rem, 4vw, 1.2rem);
-    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: clamp(0.65rem, 3vw, 0.8rem);
+    color: rgba(255, 255, 255, 0.65);
   }
 
   /* 2. Article hero — editorial style */
