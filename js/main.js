@@ -80,7 +80,7 @@ window.addEventListener('DOMContentLoaded', function() {
     var dots = document.querySelectorAll('.services-nav-dot');
     var sections = [
         document.querySelector('#meno-terapija'),
-        document.querySelector('#judejimo-terapija'),
+        document.querySelector('#judesio-terapija'),
         document.querySelector('#individuali-sesija')
     ];
 
