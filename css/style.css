@@ -3327,7 +3327,26 @@ a.service-breath {
         padding: 48px 48px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
+        align-self: stretch;
+    }
+
+    body.page-kontaktai .contact-form-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    body.page-kontaktai #contactForm {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    body.page-kontaktai .kontaktai-form-col .form-group:last-of-type {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
     }
 
     /* Desktop form heading */
@@ -3338,7 +3357,7 @@ a.service-breath {
 
     .kd-form-title {
         font-family: 'Playfair Display', serif;
-        font-size: 28px;
+        font-size: 22px;
         font-weight: 400;
         color: #3D5167;
         margin-bottom: 8px;
@@ -3416,6 +3435,7 @@ a.service-breath {
     body.page-kontaktai .kontaktai-form-col .form-textarea {
         resize: none;
         min-height: 72px;
+        flex: 1;
     }
 
     body.page-kontaktai .kontaktai-form-col .form-input.error,
