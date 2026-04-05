@@ -3331,12 +3331,6 @@ a.service-breath {
         align-self: stretch;
     }
 
-    body.page-kontaktai .contact-form-wrapper {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-    }
-
     body.page-kontaktai #contactForm {
         flex: 1;
         display: flex;
@@ -3347,6 +3341,7 @@ a.service-breath {
         flex: 1;
         display: flex;
         flex-direction: column;
+        margin-bottom: 16px;
     }
 
     /* Desktop form heading */
@@ -3379,7 +3374,9 @@ a.service-breath {
 
     /* Show form directly without toggle */
     body.page-kontaktai .contact-form-wrapper {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
     }
 
     /* Hide footer — merges visually with dark left panel */
@@ -3443,10 +3440,24 @@ a.service-breath {
         border-bottom-color: #DC2626;
     }
 
-    body.page-kontaktai .kontaktai-form-col .btn-lg {
-        margin-top: 8px;
-        padding: 10px 28px;
+    body.page-kontaktai .kontaktai-form-col #submitBtn {
+        background: #FAF9F6;
+        color: #5D768B;
+        border: 1px solid #5D768B;
+        border-radius: 0;
+        padding: 12px 32px;
         font-size: 14px;
+        letter-spacing: 0.06em;
+        width: auto;
+        display: inline-block;
+        transition: background 0.2s ease;
+        align-self: flex-start;
+        margin-top: 0;
+    }
+
+    body.page-kontaktai .kontaktai-form-col #submitBtn:hover {
+        background: #DCDFD6;
+        color: #5D768B;
     }
 }
 
