@@ -3185,7 +3185,8 @@ a.service-breath {
 
 /* Hidden on desktop, shown only on mobile */
 .kd-desktop-identity,
-.kd-desktop-form-header {
+.kd-desktop-form-header,
+.kd-compact-card {
     display: none;
 }
 
@@ -3196,114 +3197,134 @@ a.service-breath {
         display: none;
     }
 
-    /* Section fills viewport, no default section padding */
+    /* Section — centered container with padding */
     body.page-kontaktai .kontaktai-split-section {
-        padding: 0;
-        padding-top: 89px; /* fixed header height */
+        padding: 80px 0;
     }
 
-    /* Remove container constraints */
+    /* Use normal container */
     body.page-kontaktai .kontaktai-split-section > .container {
-        max-width: 100%;
-        padding: 0;
+        max-width: var(--container-xl);
+        padding: 0 var(--space-lg);
     }
 
-    /* Two equal panels side by side */
+    /* Two columns: 1/3 + 2/3 */
     body.page-kontaktai .contact-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 0;
-        min-height: calc(100vh - 89px);
-        align-items: stretch;
+        grid-template-columns: 1fr 2fr;
+        gap: 40px;
+        min-height: auto;
+        align-items: center;
     }
 
-    /* ── LEFT PANEL (dark) ── */
+    /* ── LEFT CARD ── */
     body.page-kontaktai .contact-info {
-        background-color: #5D768B;
-        padding: 80px 100px 64px max(var(--space-lg), calc((100vw - var(--container-xl)) / 2 + var(--space-lg)));
+        background-color: #FAF9F6;
+        padding: 48px 32px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        align-items: center;
+        text-align: center;
         gap: 0;
     }
 
-    /* Desktop identity block */
+    /* Hide old identity block on desktop */
     .kd-desktop-identity {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        margin-bottom: 40px;
-        padding-bottom: 40px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        display: none;
     }
 
-    .kd-avatar {
-        width: 80px;
-        height: 80px;
+    /* Show new compact card on desktop */
+    .kd-compact-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .kd-compact-avatar {
+        width: 96px;
+        height: 96px;
         border-radius: 50%;
         overflow: hidden;
-        border: 2px solid rgba(255, 255, 255, 0.3);
+        margin-bottom: 16px;
         flex-shrink: 0;
     }
 
-    .kd-avatar img {
+    .kd-compact-avatar img {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
 
-    .kd-name {
+    .kd-compact-name {
         font-family: 'Playfair Display', serif;
-        font-size: 28px;
+        font-size: 22px;
         font-weight: 400;
-        color: #ffffff;
-        margin-bottom: 8px;
+        color: #5D768B;
+        margin-bottom: 6px;
     }
 
-    .kd-role {
-        font-size: 13px;
-        color: rgba(255, 255, 255, 0.55);
-        letter-spacing: 0.1em;
+    .kd-compact-role {
+        font-family: var(--font-primary);
+        font-size: 11px;
+        font-weight: 400;
         text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: #7C8C76;
+        margin-bottom: 0;
     }
 
-    /* Hide "Susisiekime" heading + description on split layout */
+    .kd-compact-divider {
+        width: 40px;
+        height: 1px;
+        background: #DCDFD6;
+        margin: 20px auto;
+    }
+
+    .kd-compact-contacts {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .kd-contact-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--font-primary);
+        font-size: 14px;
+        color: #5D768B;
+        text-decoration: none;
+    }
+
+    .kd-contact-row--static {
+        cursor: default;
+    }
+
+    .kd-contact-row svg {
+        color: #7C8C76;
+        flex-shrink: 0;
+    }
+
+    .kd-contact-row:not(.kd-contact-row--static):hover {
+        text-decoration: underline;
+    }
+
+    /* Hide old contact items (labels + values) on desktop */
+    body.page-kontaktai .contact-info .contact-item {
+        display: none;
+    }
+
+    /* Hide "Susisiekime" heading + description */
     body.page-kontaktai .contact-intro {
         display: none;
     }
 
-    /* Contact items */
-    body.page-kontaktai .contact-info .contact-item {
-        margin-bottom: 28px;
-    }
-
-    body.page-kontaktai .contact-info .contact-item:last-child {
-        margin-bottom: 0;
-    }
-
-    body.page-kontaktai .contact-item-label {
-        font-size: 11px;
-        color: rgba(255, 255, 255, 0.45);
-        letter-spacing: 0.1em;
-    }
-
-    body.page-kontaktai .contact-item-value {
-        font-size: 17px;
-        color: #ffffff;
-    }
-
-    body.page-kontaktai .contact-item-value a {
-        color: #ffffff;
-    }
-
-    body.page-kontaktai .contact-item-value a:hover {
-        color: rgba(255, 255, 255, 0.7);
-        text-decoration: underline;
-    }
-
-    /* ── RIGHT PANEL (light) ── */
+    /* ── RIGHT PANEL ── */
     body.page-kontaktai .kontaktai-form-col {
-        background-color: #FAF9F6;
-        padding: 80px 100px 64px 80px;
+        background-color: #ffffff;
+        padding: 48px 48px;
         display: flex;
         flex-direction: column;
         justify-content: center;
