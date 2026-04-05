@@ -3199,7 +3199,7 @@ a.service-breath {
 
     /* Section — centered container with padding */
     body.page-kontaktai .kontaktai-split-section {
-        padding: 80px 0;
+        padding: calc(89px + 48px) 0 80px;
     }
 
     /* Use normal container */
@@ -3443,10 +3443,11 @@ a.service-breath {
     body.page-kontaktai .kontaktai-form-col #submitBtn {
         background: #FAF9F6;
         color: #5D768B;
-        border: 1px solid #5D768B;
+        border: 1px solid #DCDFD6;
         border-radius: 0;
         padding: 12px 32px;
         font-size: 14px;
+        font-weight: 400;
         letter-spacing: 0.06em;
         width: auto;
         display: inline-block;
