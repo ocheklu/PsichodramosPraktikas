@@ -3543,3 +3543,14 @@ a.service-breath {
     color: var(--color-navy);
     margin-bottom: var(--space-xl);
 }
+
+/* === IOS VIDEO FIX === */
+video::-webkit-media-controls {
+  display: none !important;
+}
+video::-webkit-media-controls-enclosure {
+  display: none !important;
+}
+video::-webkit-media-controls-panel {
+  display: none !important;
+}
