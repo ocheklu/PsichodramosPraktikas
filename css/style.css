@@ -3544,6 +3544,53 @@ a.service-breath {
     margin-bottom: var(--space-xl);
 }
 
+/* === ARTICLE AUTHOR SIGNATURE === */
+.article-author-signature {
+  text-align: center;
+  margin: var(--space-2xl) 0;
+}
+.article-author-divider {
+  width: 40px;
+  height: 1px;
+  background: #DCDFD6;
+  margin: 0 auto 20px;
+}
+.article-author-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #5D768B;
+  margin: 0 0 6px;
+}
+.article-author-title {
+  font-size: 13px;
+  font-style: italic;
+  color: #7C8C76;
+  margin: 0 0 14px;
+}
+.article-author-tags {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.article-author-tag {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #7C8C76;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.article-author-tag:hover {
+  color: #5D768B;
+}
+.article-author-dot {
+  color: #DCDFD6;
+  font-size: 10px;
+}
+
 /* === IOS VIDEO FIX === */
 video::-webkit-media-controls {
   display: none !important;
