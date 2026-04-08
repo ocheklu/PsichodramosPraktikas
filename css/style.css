@@ -3544,46 +3544,6 @@ a.service-breath {
     margin-bottom: var(--space-xl);
 }
 
-/* === ARTICLE AUTHOR SIGNATURE === */
-.article-author-signature {
-  text-align: center;
-  margin: var(--space-2xl) 0;
-}
-.article-author-name {
-  font-family: var(--font-primary);
-  font-size: var(--text-sm);
-  font-weight: 500;
-  color: var(--color-teal);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin: 0 0 14px;
-}
-.article-author-title {
-  display: none;
-}
-.article-author-tags {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-.article-author-tag {
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #5D768B;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-.article-author-tag:hover {
-  color: #3D5167;
-}
-.article-author-dot {
-  color: #DCDFD6;
-  font-size: 10px;
-}
-
 /* === IOS VIDEO FIX === */
 video::-webkit-media-controls {
   display: none !important;
