@@ -3549,24 +3549,17 @@ a.service-breath {
   text-align: center;
   margin: var(--space-2xl) 0;
 }
-.article-author-divider {
-  width: 40px;
-  height: 1px;
-  background: #DCDFD6;
-  margin: 0 auto 20px;
-}
 .article-author-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 18px;
+  font-family: var(--font-primary);
+  font-size: var(--text-sm);
   font-weight: 500;
-  color: #5D768B;
-  margin: 0 0 6px;
+  color: var(--color-teal);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 14px;
 }
 .article-author-title {
-  font-size: 13px;
-  font-style: italic;
-  color: #7C8C76;
-  margin: 0 0 14px;
+  display: none;
 }
 .article-author-tags {
   display: flex;
@@ -3579,12 +3572,12 @@ a.service-breath {
   font-size: 10px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #7C8C76;
+  color: #5D768B;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 .article-author-tag:hover {
-  color: #5D768B;
+  color: #3D5167;
 }
 .article-author-dot {
   color: #DCDFD6;
