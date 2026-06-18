@@ -1181,6 +1181,17 @@ a.service-breath {
   color: var(--color-navy);
 }
 
+.form-note {
+  margin: 0;
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  color: var(--color-navy);
+  background-color: var(--color-beige);
+  border-left: 3px solid var(--color-sandy);
+  border-radius: var(--radius-sm);
+}
+
 .form-input,
 .form-textarea,
 .form-select {

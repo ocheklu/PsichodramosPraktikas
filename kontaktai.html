@@ -422,28 +422,20 @@
 
                         <!-- Date selection — shown conditionally -->
                         <div class="form-group" id="desktopDateGroupIndividuali" style="display:none;">
-                            <label class="form-label">Data</label>
-                            <select name="date_individuali" class="form-select">
-                                <option value="">Pasirinkite datą</option>
-                                <option value="Balandžio 14 d. 14:00">Balandžio 14 d. 14:00</option>
-                                <option value="Balandžio 21 d. 14:00">Balandžio 21 d. 14:00</option>
-                                <option value="Balandžio 28 d. 14:00">Balandžio 28 d. 14:00</option>
-                            </select>
+                            <p class="form-note">Susisieksiu su Jumis ir suderinsime artimiausią galimą laiką.</p>
                         </div>
 
                         <div class="form-group" id="desktopDateGroupJudesio" style="display:none;">
                             <label class="form-label">Data</label>
-                            <select name="date_judesio" class="form-select">
+                            <select name="date_judesio" class="form-select" data-session="judesio">
                                 <option value="">Pasirinkite datą</option>
-                                <option value="Gegužės 14 dieną 18:00">Gegužės 14 dieną 18:00</option>
                             </select>
                         </div>
 
                         <div class="form-group" id="desktopDateGroupMeno" style="display:none;">
                             <label class="form-label">Data</label>
-                            <select name="date_meno" class="form-select">
+                            <select name="date_meno" class="form-select" data-session="meno">
                                 <option value="">Pasirinkite datą</option>
-                                <option value="Gegužės 24 dieną 14:00">Gegužės 24 dieną 14:00</option>
                             </select>
                         </div>
 
@@ -489,6 +481,7 @@
     </footer>
     
     <!-- JavaScript -->
+    <script src="js/sessions.js"></script>
     <script src="js/main.js"></script>
     <script>
         // Form submission handling
@@ -674,25 +667,18 @@
 
                 <!-- Date selection — shown conditionally -->
                 <div class="modal-form-group" id="dateGroupIndividuali" style="display:none;">
-                    <select name="date_individuali" class="modal-input modal-select">
-                        <option value="">Pasirinkite datą</option>
-                        <option value="Balandžio 14 d. 14:00">Balandžio 14 d. 14:00</option>
-                        <option value="Balandžio 21 d. 14:00">Balandžio 21 d. 14:00</option>
-                        <option value="Balandžio 28 d. 14:00">Balandžio 28 d. 14:00</option>
-                    </select>
+                    <p class="form-note">Susisieksiu su Jumis ir suderinsime artimiausią galimą laiką.</p>
                 </div>
 
                 <div class="modal-form-group" id="dateGroupJudesio" style="display:none;">
-                    <select name="date_judesio" class="modal-input modal-select">
+                    <select name="date_judesio" class="modal-input modal-select" data-session="judesio">
                         <option value="">Pasirinkite datą</option>
-                        <option value="Gegužės 14 dieną 18:00">Gegužės 14 dieną 18:00</option>
                     </select>
                 </div>
 
                 <div class="modal-form-group" id="dateGroupMeno" style="display:none;">
-                    <select name="date_meno" class="modal-input modal-select">
+                    <select name="date_meno" class="modal-input modal-select" data-session="meno">
                         <option value="">Pasirinkite datą</option>
-                        <option value="Gegužės 24 dieną 14:00">Gegužės 24 dieną 14:00</option>
                     </select>
                 </div>
 
